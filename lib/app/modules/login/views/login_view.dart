@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:lautan_uang/app/modules/home/views/home_view.dart';
+import 'package:lautan_uang/app/modules/register/views/register_view.dart';
 import 'package:lautan_uang/core/theme/colors.dart';
 import 'package:lautan_uang/core/theme/text_theme.dart';
 import 'package:lautan_uang/core/utils/size_configs.dart';
@@ -154,9 +155,7 @@ class LoginView extends GetView<LoginController> {
                           },
                           child: Text(
                             "Masuk",
-                            style: TextStyle(
-                              fontSize: 14,
-                            ),
+                            style: loginButton,
                           ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: PrussianBlueColor,
@@ -180,7 +179,11 @@ class LoginView extends GetView<LoginController> {
                               style: loginBelumPunyaAkun,
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.offAll(
+                                  RegisterView(),
+                                );
+                              },
                               child: Text(
                                 "Daftar",
                                 style: loginDaftar,
