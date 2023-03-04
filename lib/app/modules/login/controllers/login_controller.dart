@@ -4,6 +4,8 @@ class LoginController extends GetxController {
   //TODO: Implement LoginController
 
   final count = 0.obs;
+  RxBool showPassword = true.obs;
+  
   @override
   void onInit() {
     super.onInit();

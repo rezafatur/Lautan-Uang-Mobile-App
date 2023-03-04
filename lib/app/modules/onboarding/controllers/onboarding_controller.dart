@@ -7,10 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 class OnboardingController extends GetxController {
   var currentPage = 0.obs;
 
-  // void onPageChanged(int index) {
-  //   currentPage.value = index;
-  // }
-
   Future<void> onPageChanged(int index) async {
     currentPage.value = index;
 

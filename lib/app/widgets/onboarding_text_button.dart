@@ -20,8 +20,8 @@ class onboardTextButton extends StatelessWidget {
         horizontal: 20,
       ),
       child: SizedBox(
-        height: SizeConfig.blockSizeW! * 15,
-        width: SizeConfig.blockSizeW! * 100,
+        height: SizeConfig.blockHorizontal! * 15,
+        width: SizeConfig.blockHorizontal! * 100,
         child: TextButton(
           onPressed: onPressed,
           child: Text(

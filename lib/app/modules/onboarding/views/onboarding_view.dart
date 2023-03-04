@@ -32,107 +32,111 @@ class OnboardingView extends GetView<OnboardingController> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    double sizeH = SizeConfig.blockSizeH!;
+    double vertical = SizeConfig.blockVertical!;
     return Scaffold(
       backgroundColor: PrussianBlueColor,
       body: SafeArea(
-          child: Column(
-        children: [
-          Expanded(
-            flex: 9,
-            child: PageView.builder(
-              controller: pageController,
-              itemCount: OnboardingContents.length,
-              onPageChanged: controller.onPageChanged,
-              itemBuilder: (context, index) => Column(
-                children: [
-                  SizedBox(
-                    height: sizeH * 5,
-                  ),
-                  Text(
-                    OnboardingContents[index].title,
-                    style: onboardTitle,
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: sizeH * 5,
-                  ),
-                  Container(
-                    height: sizeH * 50,
-                    child: Image.asset(
-                      OnboardingContents[index].image,
-                      fit: BoxFit.contain,
+        child: Column(
+          children: [
+            Expanded(
+              flex: 9,
+              child: PageView.builder(
+                controller: pageController,
+                itemCount: OnboardingContents.length,
+                onPageChanged: controller.onPageChanged,
+                itemBuilder: (context, index) => Column(
+                  children: [
+                    SizedBox(
+                      height: vertical * 5,
                     ),
-                  ),
-                  SizedBox(
-                    height: sizeH * 5,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                    ),
-                    child: Text(
-                      OnboardingContents[index].description,
-                      style: onboardDescription,
+                    Text(
+                      OnboardingContents[index].title,
+                      style: onboardTitle,
                       textAlign: TextAlign.center,
                     ),
-                  ),
-                  SizedBox(
-                    height: sizeH * 5,
-                  ),
-                ],
+                    SizedBox(
+                      height: vertical * 5,
+                    ),
+                    Container(
+                      height: vertical * 50,
+                      child: Image.asset(
+                        OnboardingContents[index].image,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    SizedBox(
+                      height: vertical * 5,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      child: Text(
+                        OnboardingContents[index].description,
+                        style: onboardDescription,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    SizedBox(
+                      height: vertical * 5,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Obx(
-              () => Column(
-                children: [
-                  controller.currentPage.value == OnboardingContents.length - 1
-                      ? onboardTextButton(
-                          buttonName: "Mulai Sekarang",
-                          onPressed: () {
-                            Get.off(
-                              const LoginView(),
-                            );
-                          },
-                          backgroundColor: MaximumBlueColor)
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            onboardNavButton(
-                              name: "Lewati",
-                              onPressed: () {
-                                pageController.animateToPage(
-                                    OnboardingContents.length - 1,
-                                    duration: const Duration(milliseconds: 1000),
-                                    curve: Curves.easeInOut);
-                              },
-                            ),
-                            Row(
-                              children: List.generate(
-                                OnboardingContents.length,
-                                (index) => dotIndicator(
-                                    index == controller.currentPage.value),
+            Expanded(
+              flex: 1,
+              child: Obx(
+                () => Column(
+                  children: [
+                    controller.currentPage.value ==
+                            OnboardingContents.length - 1
+                        ? onboardTextButton(
+                            buttonName: "Mulai Sekarang",
+                            onPressed: () {
+                              Get.offAll(
+                                LoginView(),
+                              );
+                            },
+                            backgroundColor: MaximumBlueColor)
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              onboardNavButton(
+                                name: "Lewati",
+                                onPressed: () {
+                                  pageController.animateToPage(
+                                      OnboardingContents.length - 1,
+                                      duration:
+                                          const Duration(milliseconds: 1000),
+                                      curve: Curves.easeInOut);
+                                },
                               ),
-                            ),
-                            onboardNavButton(
-                              name: "Lanjut",
-                              onPressed: () {
-                                pageController.nextPage(
-                                    duration: const Duration(milliseconds: 500),
-                                    curve: Curves.easeInOut);
-                              },
-                            ),
-                          ],
-                        ),
-                ],
+                              Row(
+                                children: List.generate(
+                                  OnboardingContents.length,
+                                  (index) => dotIndicator(
+                                      index == controller.currentPage.value),
+                                ),
+                              ),
+                              onboardNavButton(
+                                name: "Lanjut",
+                                onPressed: () {
+                                  pageController.nextPage(
+                                      duration:
+                                          const Duration(milliseconds: 500),
+                                      curve: Curves.easeInOut);
+                                },
+                              ),
+                            ],
+                          ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
-      )),
+          ],
+        ),
+      ),
     );
   }
 }
