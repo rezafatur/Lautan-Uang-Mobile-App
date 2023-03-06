@@ -1,25 +1,37 @@
 import 'package:get/get.dart';
+import '../service/api_service.dart';
+import '../../../data/models/user.dart';
 
 class RegisterController extends GetxController {
-  //TODO: Implement RegisterController
+  var isLoading = false.obs;
+  var user = User(name: '', email: '', password: '').obs;
+  var errorMessage = ''.obs;
 
-  final count = 0.obs;
-  RxBool showPassword = true.obs;
+  var showPassword = true.obs;
 
-  @override
-  void onInit() {
-    super.onInit();
+  Future<void> registerUser(String name, String email, String password) async {
+    print(name);
+    try {
+      isLoading.value = true;
+      var response = await ApiService().registerUser(name, email, password);
+      print(response);
+      if (response['message'] != null && response['errors'] == null) {
+        errorMessage.value = response['message'];
+        // jika berhasil register, alihkan ke halaman login
+        Get.offNamed('/login');
+      } else if (response != null && response['errors'] != null) {
+        // jika terjadi kesalahan
+        Map<String, dynamic> errors = response['errors'];
+        String message = '';
+        errors.forEach((key, value) {
+          message += value[0] + '\n';
+        });
+        errorMessage.value = message;
+      }
+    } catch (e) {
+      errorMessage.value = 'Failed to register user';
+    } finally {
+      isLoading.value = false;
+    }
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

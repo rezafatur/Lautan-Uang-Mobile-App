@@ -15,6 +15,9 @@ class RegisterView extends GetView<RegisterController> {
   final pageController = PageController();
   @override
   final RegisterController controller = Get.put(RegisterController());
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +66,7 @@ class RegisterView extends GetView<RegisterController> {
                 height: 20,
               ),
               TextField(
+                controller: nameController,
                 keyboardType: TextInputType.name,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -85,6 +89,7 @@ class RegisterView extends GetView<RegisterController> {
                 height: 20,
               ),
               TextField(
+                controller: emailController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -109,6 +114,7 @@ class RegisterView extends GetView<RegisterController> {
               Material(
                 child: Obx(
                   () => TextField(
+                    controller: passwordController,
                     obscureText: controller.showPassword.value,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -146,9 +152,8 @@ class RegisterView extends GetView<RegisterController> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Get.offAll(
-                    HomeView(),
-                  );
+                  controller.registerUser(nameController.text,
+                      emailController.text, passwordController.text);
                 },
                 child: Text(
                   "Daftar",
@@ -166,6 +171,12 @@ class RegisterView extends GetView<RegisterController> {
               ),
               SizedBox(
                 height: 20,
+              ),
+              Obx(
+                () => Text(
+                  controller.errorMessage.value,
+                  style: TextStyle(color: Colors.red),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

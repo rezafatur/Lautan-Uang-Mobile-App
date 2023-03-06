@@ -15,6 +15,8 @@ class LoginView extends GetView<LoginController> {
   final pageController = PageController();
   @override
   final LoginController controller = Get.put(LoginController());
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -88,6 +90,7 @@ class LoginView extends GetView<LoginController> {
                           height: 20,
                         ),
                         TextField(
+                          controller: emailController,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -112,6 +115,7 @@ class LoginView extends GetView<LoginController> {
                         Material(
                           child: Obx(
                             () => TextField(
+                              controller: passwordController,
                               obscureText: controller.showPassword.value,
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -149,9 +153,8 @@ class LoginView extends GetView<LoginController> {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            Get.off(
-                              HomeView(),
-                            );
+                            controller.loginUser(
+                                emailController.text, passwordController.text);
                           },
                           child: Text(
                             "Masuk",
@@ -169,6 +172,12 @@ class LoginView extends GetView<LoginController> {
                         ),
                         SizedBox(
                           height: 15,
+                        ),
+                        Obx(
+                          () => Text(
+                            controller.errorMessage.value,
+                            style: TextStyle(color: Colors.red),
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
