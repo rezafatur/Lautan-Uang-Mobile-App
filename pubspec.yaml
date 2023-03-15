@@ -2,38 +2,39 @@ name: lautan_uang
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment:
-  sdk: ">=2.19.2 <3.0.0"
+environment: 
+  sdk: '>=2.19.2 <3.0.0'
 
-dependencies:
+dependencies: 
   cupertino_icons: ^1.0.2
   get: 4.6.5
-  flutter:
-    sdk: flutter
   flutter_native_splash: ^2.2.18
   shared_preferences: ^2.0.18
   http: ^0.13.4
   get_storage: ^2.0.3
+  convex_bottom_bar: 3.2.0
+  flutter: 
+    sdk: flutter
+  intl: ^0.18.0
+  carousel_slider: ^4.2.1
 
-dev_dependencies:
+dev_dependencies: 
   flutter_lints: ^2.0.0
-  flutter_test:
+  flutter_test: 
     sdk: flutter
 
-flutter_native_splash:
-  color: "#023859"
+flutter_native_splash: 
+  color: '#023859'
   image: assets/icons/LautanUangLogo.png
-
-  android_12:
-    color: "#023859"
+  android_12: 
+    color: '#023859'
     image: assets/icons/LautanUangLogo.png
-
   android: true
   ios: true
 
-flutter:
-  uses-material-design: true
-
-  assets:
+flutter: 
+  assets: 
     - assets/icons/
     - assets/images/
+  uses-material-design: true
+

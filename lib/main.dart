@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:lautan_uang/app/controllers/page_index_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'app/routes/app_pages.dart';
 import 'app/data/models/local_storage_service.dart';
@@ -17,6 +18,7 @@ void main() async {
 
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
+  Get.put(PageIndexController(), permanent: true);
 
   runApp(
     GetMaterialApp(

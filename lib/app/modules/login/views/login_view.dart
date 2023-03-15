@@ -84,7 +84,7 @@ class LoginView extends GetView<LoginController> {
                       children: [
                         Image.asset(
                           "assets/images/Login.png",
-                          height: sizeH * 0.3,
+                          height: sizeH * 0.25,
                         ),
                         SizedBox(
                           height: 20,

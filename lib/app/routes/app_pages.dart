@@ -1,13 +1,21 @@
 import 'package:get/get.dart';
 
+import '../modules/balance/bindings/balance_binding.dart';
+import '../modules/balance/views/balance_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
+import '../modules/portfolio/bindings/portfolio_binding.dart';
+import '../modules/portfolio/views/portfolio_view.dart';
+import '../modules/profile/bindings/profile_binding.dart';
+import '../modules/profile/views/profile_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/transaction/bindings/transaction_binding.dart';
+import '../modules/transaction/views/transaction_view.dart';
 
 part 'app_routes.dart';
 
@@ -19,8 +27,9 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.HOME,
-      page: () => const HomeView(),
+      page: () => HomeView(),
       binding: HomeBinding(),
+      transition: Transition.fadeIn,
     ),
     GetPage(
       name: _Paths.ONBOARDING,
@@ -36,6 +45,29 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => RegisterView(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.PORTFOLIO,
+      page: () => PortfolioView(),
+      binding: PortfolioBinding(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: _Paths.BALANCE,
+      page: () => BalanceView(),
+      binding: BalanceBinding(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: _Paths.TRANSACTION,
+      page: () => TransactionView(),
+      binding: TransactionBinding(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
     ),
   ];
 }
