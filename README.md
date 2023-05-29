@@ -1,16 +1,12 @@
-# lautan_uang
+# Lautan Uang
 
-A new Flutter project.
+![Thumbnail Lautan Uang](./Thumbnail_Lautan_Uang.jpg)
+Pengembangan aplikasi Lautan Uang dengan menggunakan Flutter (Status: On Progress).
 
-## Getting Started
+## Aplikasi
 
-This project is a starting point for a Flutter application.
+v1.0 : Coming Soon.
 
-A few resources to get you started if this is your first Flutter project:
+## Dokumentasi / Demo
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+YouTube : Coming Soon.
