@@ -1,19 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:lautan_uang/app/controllers/page_index_controller.dart';
 import 'package:lautan_uang/app/data/models/investasi_ke_nelayan.dart';
 import 'package:lautan_uang/app/data/models/provinsi_nelayan.dart';
-import 'package:lautan_uang/app/modules/portfolio/views/portfolio_view.dart';
+import 'package:lautan_uang/app/modules/fishermanDetail/views/fisherman_detail_view.dart';
+import 'package:lautan_uang/app/modules/profile/views/profile_view.dart';
 import 'package:lautan_uang/app/widgets/welcome_card.dart';
 import 'package:lautan_uang/core/theme/colors.dart';
 import 'package:lautan_uang/core/theme/text_theme.dart';
 import 'package:lautan_uang/core/utils/size_configs.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -39,17 +37,25 @@ class HomeView extends GetView<HomeController> {
             style: textAppBar,
           ),
         ),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 10,
             ),
-            child: SizedBox(
-              width: 50,
-              height: 50,
-              child: Icon(
-                Icons.account_circle_rounded,
-                color: PrussianBlueColor,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProfileView()),
+                );
+              },
+              child: const SizedBox(
+                width: 50,
+                height: 50,
+                child: Icon(
+                  Icons.account_circle_rounded,
+                  color: PrussianBlueColor,
+                ),
               ),
             ),
           ),
@@ -115,7 +121,7 @@ class HomeView extends GetView<HomeController> {
                     );
                   },
                 ).toList(),
-              )
+              ),
             ],
           ),
           const SizedBox(
@@ -196,104 +202,115 @@ class HomeView extends GetView<HomeController> {
                           ),
                         );
                       }
-                      return Container(
-                        width: 150,
-                        decoration: BoxDecoration(
-                          color: AzureishWhiteColor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: ClipRRect(
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10),
-                                ),
-                                child: Image.asset(
-                                  InvestasiContents[index].gambar,
-                                  fit: BoxFit.cover,
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const FishermanDetailView()),
+                          );
+                        },
+                        child: Container(
+                          width: 150,
+                          decoration: BoxDecoration(
+                            color: AzureishWhiteColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: ClipRRect(
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    topRight: Radius.circular(10),
+                                  ),
+                                  child: Image.asset(
+                                    InvestasiContents[index].gambar,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        InvestasiContents[index].timNelayan,
-                                        style: textTimNelayan,
+                              Expanded(
+                                flex: 1,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SizedBox(
+                                        height: 10,
                                       ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: SizedBox(
-                                        width: sizeW,
-                                        child: Column(
-                                          children: [
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            LinearProgressIndicator(
-                                              value: InvestasiContents[index]
-                                                      .presentase /
-                                                  100,
-                                              backgroundColor:
-                                                  Colors.grey.withOpacity(0.3),
-                                              valueColor:
-                                                  const AlwaysStoppedAnimation<
-                                                      Color>(
-                                                PrussianBlueColor,
+                                      Expanded(
+                                        flex: 1,
+                                        child: Text(
+                                          InvestasiContents[index].timNelayan,
+                                          style: textTimNelayan,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 1,
+                                        child: SizedBox(
+                                          width: sizeW,
+                                          child: Column(
+                                            children: [
+                                              const SizedBox(
+                                                height: 10,
                                               ),
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  "Nilai Bisnis",
-                                                  style: textNilaiBisnis,
+                                              LinearProgressIndicator(
+                                                value: InvestasiContents[index]
+                                                        .presentase /
+                                                    100,
+                                                backgroundColor: Colors.grey
+                                                    .withOpacity(0.3),
+                                                valueColor:
+                                                    const AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  PrussianBlueColor,
                                                 ),
-                                                Text(
-                                                  "${InvestasiContents[index].presentase}%",
-                                                  style: textNilaiBisnis,
-                                                ),
-                                              ],
-                                            ),
-                                          ],
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    "Nilai Bisnis",
+                                                    style: textNilaiBisnis,
+                                                  ),
+                                                  Text(
+                                                    "${InvestasiContents[index].presentase}%",
+                                                    style: textNilaiBisnis,
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        NumberFormat.currency(
-                                          locale: 'id',
-                                          decimalDigits: 0,
-                                          symbol: 'Rp',
-                                        ).format(
-                                          InvestasiContents[index]
-                                              .totalInvestasi,
+                                      Expanded(
+                                        flex: 1,
+                                        child: Text(
+                                          NumberFormat.currency(
+                                            locale: 'id',
+                                            decimalDigits: 0,
+                                            symbol: 'Rp',
+                                          ).format(
+                                            InvestasiContents[index]
+                                                .totalInvestasi,
+                                          ),
+                                          style: textTotalInvestasi,
                                         ),
-                                        style: textTotalInvestasi,
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -609,6 +626,8 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
+
+      // Tombol Navigasi Bagian Bawah
       bottomNavigationBar: ConvexAppBar(
         style: TabStyle.flip,
         backgroundColor: PrussianBlueColor,

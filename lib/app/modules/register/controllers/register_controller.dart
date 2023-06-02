@@ -6,21 +6,19 @@ class RegisterController extends GetxController {
   var isLoading = false.obs;
   var user = User(name: '', email: '', password: '').obs;
   var errorMessage = ''.obs;
-
   var showPassword = true.obs;
 
   Future<void> registerUser(String name, String email, String password) async {
-    print(name);
     try {
       isLoading.value = true;
       var response = await ApiService().registerUser(name, email, password);
       print(response);
       if (response['message'] != null && response['errors'] == null) {
         errorMessage.value = response['message'];
-        // jika berhasil register, alihkan ke halaman login
+        // Jika berhasil register, alihkan ke halaman login
         Get.offNamed('/login');
       } else if (response != null && response['errors'] != null) {
-        // jika terjadi kesalahan
+        // Jika terjadi kesalahan
         Map<String, dynamic> errors = response['errors'];
         String message = '';
         errors.forEach((key, value) {

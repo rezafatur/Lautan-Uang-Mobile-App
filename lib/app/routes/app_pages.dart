@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/balance/bindings/balance_binding.dart';
 import '../modules/balance/views/balance_view.dart';
+import '../modules/fishermanDetail/bindings/fisherman_detail_binding.dart';
+import '../modules/fishermanDetail/views/fisherman_detail_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -68,6 +70,11 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.FISHERMAN_DETAIL,
+      page: () => const FishermanDetailView(),
+      binding: FishermanDetailBinding(),
     ),
   ];
 }

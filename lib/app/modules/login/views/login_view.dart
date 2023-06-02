@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:lautan_uang/app/modules/home/views/home_view.dart';
 import 'package:lautan_uang/app/modules/register/views/register_view.dart';
 import 'package:lautan_uang/core/theme/colors.dart';
 import 'package:lautan_uang/core/theme/text_theme.dart';
 import 'package:lautan_uang/core/utils/size_configs.dart';
-
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -70,7 +67,7 @@ class LoginView extends GetView<LoginController> {
                 flex: 5,
                 child: Container(
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(100),
@@ -86,7 +83,7 @@ class LoginView extends GetView<LoginController> {
                           "assets/images/Login.png",
                           height: sizeH * 0.25,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         TextField(
@@ -99,17 +96,17 @@ class LoginView extends GetView<LoginController> {
                             ),
                             filled: true,
                             fillColor: AzureishWhiteColor,
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.email,
                               color: PrussianBlueColor,
                             ),
                             hintText: "Email",
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               color: PrussianBlueColor,
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Material(
@@ -124,7 +121,7 @@ class LoginView extends GetView<LoginController> {
                                 ),
                                 filled: true,
                                 fillColor: AzureishWhiteColor,
-                                prefixIcon: Icon(
+                                prefixIcon: const Icon(
                                   Icons.lock,
                                   color: PrussianBlueColor,
                                 ),
@@ -141,25 +138,20 @@ class LoginView extends GetView<LoginController> {
                                   ),
                                 ),
                                 hintText: "Password",
-                                hintStyle: TextStyle(
+                                hintStyle: const TextStyle(
                                   color: PrussianBlueColor,
                                 ),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            controller.loginUser(
-                                emailController.text, passwordController.text);
+                            controller.loginUser(emailController.text, passwordController.text);
                           },
-                          child: Text(
-                            "Masuk",
-                            style: loginButton,
-                          ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: PrussianBlueColor,
                             shape: RoundedRectangleBorder(
@@ -169,14 +161,20 @@ class LoginView extends GetView<LoginController> {
                               horizontal: sizeW * 0.2,
                             ),
                           ),
+                          child: Text(
+                            "Masuk",
+                            style: loginButton,
+                          ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
                         Obx(
                           () => Text(
                             controller.errorMessage.value,
-                            style: TextStyle(color: Colors.red),
+                            style: const TextStyle(
+                              color: Colors.red,
+                            ),
                           ),
                         ),
                         Row(

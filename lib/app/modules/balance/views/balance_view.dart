@@ -1,6 +1,5 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:lautan_uang/app/controllers/page_index_controller.dart';
 import 'package:lautan_uang/core/theme/colors.dart';

@@ -1,17 +1,19 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  // final String baseUrl = 'http://localhost:8000/api/investor';
+  // final baseUrl = 'http://localhost:8000/api/investor';
 
   // Android Emulator
-  final String baseUrl = 'http://10.0.2.2:8000/api/investor';
+  // final baseUrl = 'http://10.0.2.2:8000/api/investor';
+
+  // API Lautan Uang
+  final baseUrl = 'https://api-lautanuang.qweersq.my.id';
 
   Future<Map<String, dynamic>> registerUser(
       String name, String email, String password) async {
     final response = await http.post(
-      Uri.parse('$baseUrl/register'),
+      Uri.parse('$baseUrl/api/investor/register'),
       body: {'name': name, 'email': email, 'password': password},
       headers: {
         'Accept': 'application/json',

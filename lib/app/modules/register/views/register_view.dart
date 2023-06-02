@@ -36,7 +36,7 @@ class RegisterView extends GetView<RegisterController> {
               LoginView(),
             );
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: PrussianBlueColor,
           ),
@@ -53,7 +53,7 @@ class RegisterView extends GetView<RegisterController> {
                 "Buat Akun",
                 style: daftarHeader,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Center(
@@ -62,7 +62,7 @@ class RegisterView extends GetView<RegisterController> {
                   height: sizeH * 0.3,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -75,17 +75,17 @@ class RegisterView extends GetView<RegisterController> {
                   ),
                   filled: true,
                   fillColor: AzureishWhiteColor,
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.person,
                     color: PrussianBlueColor,
                   ),
                   hintText: "Nama",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: PrussianBlueColor,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -98,17 +98,17 @@ class RegisterView extends GetView<RegisterController> {
                   ),
                   filled: true,
                   fillColor: AzureishWhiteColor,
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.email,
                     color: PrussianBlueColor,
                   ),
                   hintText: "Email",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: PrussianBlueColor,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Material(
@@ -123,7 +123,7 @@ class RegisterView extends GetView<RegisterController> {
                       ),
                       filled: true,
                       fillColor: AzureishWhiteColor,
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.lock,
                         color: PrussianBlueColor,
                       ),
@@ -140,14 +140,53 @@ class RegisterView extends GetView<RegisterController> {
                         ),
                       ),
                       hintText: "Password",
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                         color: PrussianBlueColor,
                       ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
+                height: 20,
+              ),
+              Material(
+                child: Obx(
+                  () => TextField(
+                    controller: passwordController,
+                    obscureText: controller.showPassword.value,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      filled: true,
+                      fillColor: AzureishWhiteColor,
+                      prefixIcon: const Icon(
+                        Icons.lock_reset,
+                        color: PrussianBlueColor,
+                      ),
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          controller.showPassword.value =
+                              !(controller.showPassword.value);
+                        },
+                        child: Icon(
+                          controller.showPassword.value != false
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          color: PrussianBlueColor,
+                        ),
+                      ),
+                      hintText: "Konfirmasi Password",
+                      hintStyle: const TextStyle(
+                        color: PrussianBlueColor,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
                 height: 20,
               ),
               ElevatedButton(
@@ -155,10 +194,6 @@ class RegisterView extends GetView<RegisterController> {
                   controller.registerUser(nameController.text,
                       emailController.text, passwordController.text);
                 },
-                child: Text(
-                  "Daftar",
-                  style: daftarButton,
-                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: PrussianBlueColor,
                   shape: RoundedRectangleBorder(
@@ -168,14 +203,20 @@ class RegisterView extends GetView<RegisterController> {
                     horizontal: sizeW * 0.2,
                   ),
                 ),
+                child: Text(
+                  "Daftar",
+                  style: daftarButton,
+                ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Obx(
                 () => Text(
                   controller.errorMessage.value,
-                  style: TextStyle(color: Colors.red),
+                  style: const TextStyle(
+                    color: Colors.red,
+                  ),
                 ),
               ),
               Row(

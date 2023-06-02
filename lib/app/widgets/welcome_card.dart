@@ -23,13 +23,13 @@ class WelcomeCard extends StatelessWidget {
     // Ucapan selamat berdasarkan waktu
     String greeting = '';
     if (timeNow.hour >= 5 && timeNow.hour < 11) {
-      greeting = 'Selamat Pagi, ';
+      greeting = 'Selamat Pagi';
     } else if (timeNow.hour < 15) {
-      greeting = 'Selamat Siang, ';
+      greeting = 'Selamat Siang';
     } else if (timeNow.hour < 18) {
-      greeting = 'Selamat Sore, ';
+      greeting = 'Selamat Sore';
     } else {
-      greeting = 'Selamat Malam, ';
+      greeting = 'Selamat Malam';
     }
 
     return Container(
@@ -52,7 +52,7 @@ class WelcomeCard extends StatelessWidget {
         children: [
           // Ucapan Selamat Pagi/Siang/Sore/Malam
           Text(
-            "${greeting}Reza!",
+            "$greeting, Reza",
             style: textUcapan,
           ),
           const SizedBox(

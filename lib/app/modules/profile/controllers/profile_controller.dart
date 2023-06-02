@@ -1,6 +1,9 @@
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController {
+  String? selectedGender;
+  var showPassword = true.obs;
+
   //TODO: Implement ProfileController
 
   final count = 0.obs;
