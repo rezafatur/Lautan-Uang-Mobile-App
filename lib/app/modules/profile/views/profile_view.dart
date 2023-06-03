@@ -15,6 +15,7 @@ class ProfileView extends GetView<ProfileController> {
     double sizeH = SizeConfig.screenHeight!;
     double sizeW = SizeConfig.screenWidth!;
 
+    // Pilih Tanggal Lahir Investor
     Future<void> selectDate(BuildContext context) async {
       final DateTime? picked = await showDatePicker(
         context: context,
@@ -422,7 +423,7 @@ class ProfileView extends GetView<ProfileController> {
           ],
         ),
       ),
-      // Warana Latar Belakang Halaman
+      // Warna Latar Belakang Halaman
       backgroundColor: Colors.white,
     );
   }
