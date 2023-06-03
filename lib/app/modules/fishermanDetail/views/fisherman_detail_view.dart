@@ -38,7 +38,12 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                 height: 250,
                 aspectRatio: 21 / 9,
                 viewportFraction: 1,
+                autoPlay: true,
+                autoPlayCurve: Curves.fastOutSlowIn,
                 enableInfiniteScroll: true,
+                autoPlayAnimationDuration: const Duration(
+                  milliseconds: 800,
+                ),
               ),
               items: [
                 "assets/images/ContohTawaran1.png",

@@ -9,19 +9,28 @@ class LoginController extends GetxController {
   final LocalStorageService _localStorageService =
       Get.find<LocalStorageService>();
 
+  bool isEmailValid(String email) {
+    return email.isNotEmpty;
+  }
+
+  bool isPasswordValid(String password) {
+    return password.isNotEmpty;
+  }
+
   Future<void> loginUser(String email, String password) async {
     try {
       isLoading.value = true;
       var response = await ApiService().loginUser(email, password);
-      if (response != null && response['success'] == true) {
-        // Jika berhasil login, maka simpan token di shared preference
+      if (response['success'] == true) {
+        // Jika Berhasil Login, Maka Simpan Token di Shared Preference
         var token = response['token'];
-        await LocalStorageService().setToken(token);
-        // Pindah ke halaman home
+        await _localStorageService.setToken(token);
+
+        // Pindah ke Halaman Home
         Get.offNamed('/home');
       } else {
-        // Jika terjadi kesalahan
-        var message = response['message'] ?? 'Failed to login';
+        // Jika Terjadi Kesalahan, Tampilkan Pesan Error
+        var message = "Email atau Password Salah";
         errorMessage.value = message;
       }
     } catch (e) {

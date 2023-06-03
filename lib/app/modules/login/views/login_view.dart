@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lautan_uang/app/modules/register/views/register_view.dart';
@@ -25,13 +26,14 @@ class LoginView extends GetView<LoginController> {
     Paint.enableDithering = true;
 
     return Scaffold(
-      backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Container(
           constraints: BoxConstraints(
             maxHeight: sizeH,
             maxWidth: sizeW,
           ),
+
+          // Gradient untuk Background atau Latar Belakang
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
@@ -43,8 +45,11 @@ class LoginView extends GetView<LoginController> {
               ],
             ),
           ),
+
+          // Kolom Gambar, Email, Password, Tombol "Masuk", dan Daftar
           child: Column(
             children: [
+              // Logo Lautan Uang
               Expanded(
                 flex: 2,
                 child: Padding(
@@ -54,15 +59,25 @@ class LoginView extends GetView<LoginController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        "assets/icons/LautanUangLogo.png",
-                        height: sizeH * 0.25,
-                        fit: BoxFit.fill,
+                      Container(
+                        width: sizeW * 0.3,
+                        height: sizeH * 0.15,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: Image.asset(
+                          "assets/icons/LautanUangLogo.png",
+                          height: sizeH * 0.25,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
+
+              // Login Section
               Expanded(
                 flex: 5,
                 child: Container(
@@ -79,6 +94,7 @@ class LoginView extends GetView<LoginController> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        // Ilustrasi Login
                         Image.asset(
                           "assets/images/Login.png",
                           height: sizeH * 0.25,
@@ -86,6 +102,8 @@ class LoginView extends GetView<LoginController> {
                         const SizedBox(
                           height: 20,
                         ),
+
+                        // Textfield Email
                         TextField(
                           controller: emailController,
                           keyboardType: TextInputType.emailAddress,
@@ -109,6 +127,8 @@ class LoginView extends GetView<LoginController> {
                         const SizedBox(
                           height: 20,
                         ),
+
+                        // Textfield Password atau Kata Sandi
                         Material(
                           child: Obx(
                             () => TextField(
@@ -137,7 +157,7 @@ class LoginView extends GetView<LoginController> {
                                     color: PrussianBlueColor,
                                   ),
                                 ),
-                                hintText: "Password",
+                                hintText: "Kata Sandi",
                                 hintStyle: const TextStyle(
                                   color: PrussianBlueColor,
                                 ),
@@ -148,9 +168,12 @@ class LoginView extends GetView<LoginController> {
                         const SizedBox(
                           height: 20,
                         ),
+
+                        // Button atau Tombol "Masuk"
                         ElevatedButton(
                           onPressed: () {
-                            controller.loginUser(emailController.text, passwordController.text);
+                            controller.loginUser(
+                                emailController.text, passwordController.text);
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: PrussianBlueColor,
@@ -169,14 +192,16 @@ class LoginView extends GetView<LoginController> {
                         const SizedBox(
                           height: 15,
                         ),
+
+                        // Pesan Error
                         Obx(
                           () => Text(
                             controller.errorMessage.value,
-                            style: const TextStyle(
-                              color: Colors.red,
-                            ),
+                            style: loginError,
                           ),
                         ),
+
+                        // Button atau Tombol "Daftar"
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,

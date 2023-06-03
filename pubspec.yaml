@@ -24,10 +24,10 @@ dev_dependencies:
     sdk: flutter
 
 flutter_native_splash: 
-  color: '#023859'
+  color: '#D8EBF2'
   image: assets/icons/LautanUangLogo.png
   android_12: 
-    color: '#023859'
+    color: '#D8EBF2'
     image: assets/icons/LautanUangLogo.png
   android: true
   ios: true

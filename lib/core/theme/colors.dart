@@ -5,3 +5,4 @@ const Color DarkCeruleanColor = Color(0xFF025373);
 const Color MaximumBlueColor = Color(0xFF50A0BF);
 const Color PaleCeruleanColor = Color(0xFF96C6D9);
 const Color AzureishWhiteColor = Color(0xFFD8EBF2);
+const Color ErrorMessageColor = Color(0xFFFF3333);

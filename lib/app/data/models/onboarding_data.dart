@@ -24,7 +24,7 @@ List<Onboarding> OnboardingContents = [
     image: "assets/images/onboardPic2.png",
   ),
   Onboarding(
-    title: "Wujudkan mimpimu menjadi nyata".toUpperCase(),
+    title: "Wujudkan mimpi menjadi nyata".toUpperCase(),
     description:
         "Dari investasimu, kamu bisa menggapai mimpi dan mewujudkannya menjadi nyata!",
     image: "assets/images/onboardPic3.png",

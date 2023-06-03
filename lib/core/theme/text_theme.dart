@@ -25,6 +25,12 @@ final loginButton = TextStyle(
   color: AzureishWhiteColor,
 );
 
+final loginError = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+  color: ErrorMessageColor,
+);
+
 final loginBelumPunyaAkun = TextStyle(
   fontSize: SizeConfig.blockHorizontal! * 3.5,
 );
