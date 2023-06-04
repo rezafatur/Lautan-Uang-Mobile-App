@@ -305,3 +305,184 @@ final textSimpanProfile = TextStyle(
   fontSize: SizeConfig.blockHorizontal! * 3.5,
   color: Colors.white,
 );
+
+// Portfolio Screen
+final textPortofolio = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+final textTotalPortofolio = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.white,
+);
+
+final textTotalPortofolioRP = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 7,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+final textPengembalian = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.white,
+);
+
+final textPortfolioKosong = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textPortfolioFishermanTeam = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textPortfolioFishermanLocation = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.black,
+);
+
+final textPortfolioTotal = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textPortfolioPengembalian = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.black,
+);
+
+// Transaction Screen
+final textTransaksi = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+final textTransaksiProses = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.white,
+);
+
+final textTotalTransaksiProses = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+final textTransaksiBerhasil = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.white,
+);
+
+final textTotalTransaksiBerhasil = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+final textTransaksiGagal = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.white,
+);
+
+final textTotalTransaksiGagal = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+final textTransaksiKosong = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textTransaksiNelayan = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textTransaksiportfolio = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.black,
+);
+
+final textTransaksiStatus = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+// Balance Screen
+final textProfileSaldo = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 4,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+final textViewProfile = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.white,
+);
+
+final textSaldo = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.black,
+);
+
+final textTotalSaldo = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textTarikSaldo = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  color: Colors.black,
+);
+
+final textDepositSaldo = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  color: Colors.black,
+);
+
+final textRiwayatSaldo = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 4,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textRiwayatKosong = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textTanggalSaldo = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.black,
+);
+
+final textStatusSaldo = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.black,
+);
+
+final textJenisSaldo = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textTotalRiwayatSaldo = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);

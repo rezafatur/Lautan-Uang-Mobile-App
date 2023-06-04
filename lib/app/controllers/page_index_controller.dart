@@ -12,11 +12,11 @@ class PageIndexController extends GetxController {
         break;
       case 2:
         pageIndex.value = i;
-        Get.offAllNamed(Routes.BALANCE);
+        Get.offAllNamed(Routes.TRANSACTION);
         break;
       case 3:
         pageIndex.value = i;
-        Get.offAllNamed(Routes.TRANSACTION);
+        Get.offAllNamed(Routes.BALANCE);
         break;
       default:
         pageIndex.value = i;

@@ -24,6 +24,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
+  // ignore: constant_identifier_names
   static const INITIAL = Routes.HOME;
 
   static final routes = [
@@ -55,15 +56,15 @@ class AppPages {
       transition: Transition.fadeIn,
     ),
     GetPage(
-      name: _Paths.BALANCE,
-      page: () => BalanceView(),
-      binding: BalanceBinding(),
-      transition: Transition.fadeIn,
-    ),
-    GetPage(
       name: _Paths.TRANSACTION,
       page: () => TransactionView(),
       binding: TransactionBinding(),
+      transition: Transition.fadeIn,
+    ),
+    GetPage(
+      name: _Paths.BALANCE,
+      page: () => BalanceView(),
+      binding: BalanceBinding(),
       transition: Transition.fadeIn,
     ),
     GetPage(

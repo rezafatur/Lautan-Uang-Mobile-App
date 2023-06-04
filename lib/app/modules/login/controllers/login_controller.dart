@@ -9,14 +9,6 @@ class LoginController extends GetxController {
   final LocalStorageService _localStorageService =
       Get.find<LocalStorageService>();
 
-  bool isEmailValid(String email) {
-    return email.isNotEmpty;
-  }
-
-  bool isPasswordValid(String password) {
-    return password.isNotEmpty;
-  }
-
   Future<void> loginUser(String email, String password) async {
     try {
       isLoading.value = true;

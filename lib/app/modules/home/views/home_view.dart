@@ -26,6 +26,7 @@ class HomeView extends GetView<HomeController> {
     double sizeW = SizeConfig.screenWidth!;
 
     return Scaffold(
+      // Navigasi Bagian Atas
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Padding(
@@ -626,6 +627,8 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
+      // Warna Background atau Latar Belakang
+      backgroundColor: Colors.white,
 
       // Tombol Navigasi Bagian Bawah
       bottomNavigationBar: ConvexAppBar(
@@ -641,12 +644,12 @@ class HomeView extends GetView<HomeController> {
             title: "Portofolio",
           ),
           TabItem(
-            icon: Image.asset("assets/icons/wallet.png"),
-            title: "Saldo",
-          ),
-          TabItem(
             icon: Image.asset("assets/icons/transaction.png"),
             title: "Transaksi",
+          ),
+          TabItem(
+            icon: Image.asset("assets/icons/wallet.png"),
+            title: "Saldo",
           ),
         ],
         initialActiveIndex: pageC.pageIndex.value,
