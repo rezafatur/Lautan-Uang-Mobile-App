@@ -18,6 +18,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
     double sizeW = SizeConfig.screenWidth!;
 
     return Scaffold(
+      // Navigasi Bagian Atas
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -243,6 +244,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
           ],
         ),
       ),
+      // Warna Background atau Latar Belakang
       backgroundColor: Colors.white,
 
       // Section 6 - Tombol atau Button "Investasi Sekarang"

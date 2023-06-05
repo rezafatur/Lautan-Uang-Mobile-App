@@ -12,6 +12,7 @@ abstract class Routes {
   static const TRANSACTION = _Paths.TRANSACTION;
   static const PROFILE = _Paths.PROFILE;
   static const FISHERMAN_DETAIL = _Paths.FISHERMAN_DETAIL;
+  static const ALL_FISHERMAN_TEAM = _Paths.ALL_FISHERMAN_TEAM;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const TRANSACTION = '/transaction';
   static const PROFILE = '/profile';
   static const FISHERMAN_DETAIL = '/fisherman-detail';
+  static const ALL_FISHERMAN_TEAM = '/all-fisherman-team';
 }

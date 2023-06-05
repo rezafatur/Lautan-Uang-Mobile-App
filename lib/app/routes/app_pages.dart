@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/allFishermanTeam/bindings/all_fisherman_team_binding.dart';
+import '../modules/allFishermanTeam/views/all_fisherman_team_view.dart';
 import '../modules/balance/bindings/balance_binding.dart';
 import '../modules/balance/views/balance_view.dart';
 import '../modules/fishermanDetail/bindings/fisherman_detail_binding.dart';
@@ -76,6 +78,11 @@ class AppPages {
       name: _Paths.FISHERMAN_DETAIL,
       page: () => const FishermanDetailView(),
       binding: FishermanDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.ALL_FISHERMAN_TEAM,
+      page: () => const AllFishermanTeamView(),
+      binding: AllFishermanTeamBinding(),
     ),
   ];
 }

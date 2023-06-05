@@ -147,10 +147,27 @@ final textSaldoPoinHome = TextStyle(
   color: PrussianBlueColor,
 );
 
-final SaldoPoinHome = TextStyle(
+final saldoPoinHome = TextStyle(
   fontSize: SizeConfig.blockHorizontal! * 3.5,
   fontWeight: FontWeight.bold,
   color: PrussianBlueColor,
+);
+
+// Profile
+final textAppBarProfile = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textHintProfile = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.black,
+);
+
+final textSimpanProfile = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: Colors.white,
 );
 
 // Fisherman Detail
@@ -289,21 +306,41 @@ final textInvestasiSekarang = TextStyle(
   color: Colors.white,
 );
 
-// Profile
-final textAppBarProfile = TextStyle(
+// All Fisherman Team Screen
+final textAppBarAllFisherman = TextStyle(
   fontSize: SizeConfig.blockHorizontal! * 5,
   fontWeight: FontWeight.bold,
   color: Colors.black,
 );
 
-final textHintProfile = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
+final textAllFishermanKosong = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+  color: PrussianBlueColor,
+);
+
+final textAllFishermanTeam = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 4,
+  fontWeight: FontWeight.bold,
   color: Colors.black,
 );
 
-final textSimpanProfile = TextStyle(
+final textAllFishermanPercentage = TextStyle(
   fontSize: SizeConfig.blockHorizontal! * 3.5,
-  color: Colors.white,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textAllFishermanValue = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+);
+
+final textAllFishermanInvestor = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
 );
 
 // Portfolio Screen

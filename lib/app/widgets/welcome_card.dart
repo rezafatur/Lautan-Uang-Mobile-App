@@ -93,7 +93,7 @@ class WelcomeCard extends StatelessWidget {
                             ),
                             Text(
                               "Rp10.000.000",
-                              style: SaldoPoinHome,
+                              style: saldoPoinHome,
                             ),
                           ],
                         ),
@@ -123,7 +123,7 @@ class WelcomeCard extends StatelessWidget {
                             ),
                             Text(
                               "10.000",
-                              style: SaldoPoinHome,
+                              style: saldoPoinHome,
                             ),
                           ],
                         ),
