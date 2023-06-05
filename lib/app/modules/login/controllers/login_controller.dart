@@ -13,7 +13,7 @@ class LoginController extends GetxController {
     try {
       isLoading.value = true;
       var response = await ApiService().loginUser(email, password);
-      if (response['success'] == true) {
+      if (response['success'] == true && response['access_token'] != null) {
         // Jika Berhasil Login, Maka Simpan Token di Shared Preference
         var token = response['token'];
         await _localStorageService.setToken(token);
