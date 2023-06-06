@@ -6,7 +6,6 @@ class ApiService {
   final baseUrl = 'https://api-lautanuang.qweersq.my.id';
 
   Future<Map<String, dynamic>> loginUser(String email, String password) async {
-
     // URL Login Investor
     var url = '$baseUrl/api/investor/login';
 

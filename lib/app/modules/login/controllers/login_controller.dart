@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../service/api_service.dart';
+import '../../../data/services/api_service.dart';
 import '../../../data/models/local_storage_service.dart';
 
 class LoginController extends GetxController {
@@ -15,7 +15,7 @@ class LoginController extends GetxController {
       var response = await ApiService().loginUser(email, password);
       if (response['success'] == true && response['access_token'] != null) {
         // Jika Berhasil Login, Maka Simpan Token di Shared Preference
-        var token = response['token'];
+        var token = response['access_token'];
         await _localStorageService.setToken(token);
 
         // Pindah ke Halaman Home
