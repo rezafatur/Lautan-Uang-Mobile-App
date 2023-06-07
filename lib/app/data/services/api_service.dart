@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
@@ -19,7 +20,15 @@ class ApiService {
     );
 
     if (response != null) {
-      return jsonDecode(response.body);
+      var jsonResponse = jsonDecode(response.body);
+      if (jsonResponse['success'] == true &&
+          jsonResponse['access_token'] != null) {
+        // Jika Berhasil Login, Maka Simpan Token di GetStorage
+        var token = jsonResponse['access_token'];
+        GetStorage storage = GetStorage();
+        await storage.write('token', token);
+      }
+      return jsonResponse;
     } else {
       return {'message': 'Server error'};
     }

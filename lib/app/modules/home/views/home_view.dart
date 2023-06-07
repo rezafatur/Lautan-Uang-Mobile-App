@@ -129,6 +129,27 @@ class HomeView extends GetView<HomeController> {
                 ),
               ],
             ),
+            ElevatedButton(
+              onPressed: () {
+                controller.FetchData();
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: PrussianBlueColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                padding: EdgeInsets.symmetric(
+                  horizontal: sizeW * 0.2,
+                ),
+              ),
+              child: Text(
+                "Test Fetch Data",
+                style: loginButton,
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
             const SizedBox(
               height: 20,
             ),
