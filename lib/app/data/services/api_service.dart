@@ -1,16 +1,36 @@
 import 'dart:convert';
-import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:get_storage/get_storage.dart';
 
 class ApiService {
-  // API Lautan Uang
+  // URL API Lautan Uang
   final baseUrl = 'https://api-lautanuang.qweersq.my.id';
+
+  Future<http.Response> fetchFishermanTeams(String token) async {
+    try {
+      // API Fisherman Tim untuk Investor
+      var url = '$baseUrl/api/mobile/fisherman-tim';
+
+      // Permintaan HTTP GET ke URL
+      var response = await http.get(
+        Uri.parse(url),
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      print(e);
+      return http.Response('Error', 500);
+    }
+  }
 
   Future<Map<String, dynamic>> loginUser(String email, String password) async {
     // URL Login Investor
     var url = '$baseUrl/api/investor/login';
 
-    // Membuat permintaan HTTP POST ke URL
+    // Permintaan HTTP POST ke URL
     var response = await http.post(
       Uri.parse(url),
       body: {
@@ -19,6 +39,7 @@ class ApiService {
       },
     );
 
+    // ignore: unnecessary_null_comparison
     if (response != null) {
       var jsonResponse = jsonDecode(response.body);
       if (jsonResponse['success'] == true &&

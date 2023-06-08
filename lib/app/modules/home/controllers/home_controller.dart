@@ -1,47 +1,53 @@
+import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import '../../../data/services/api_service.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  final ApiService apiService = ApiService();
 
-  final count = 0.obs;
+  // List Tim Nelayan
+  RxList<Map<String, dynamic>> fishermanTeams = <Map<String, dynamic>>[].obs;
+
+  // Memuat data aktif
+  RxBool isLoading = true.obs;
+
   @override
   void onInit() {
     super.onInit();
+    fetchData();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
-
-  final baseUrl = 'https://api-lautanuang.qweersq.my.id';
-
-  Future<void> FetchData() async {
+  Future<void> fetchData() async {
     try {
+      // Mengambil Token
       var storage = GetStorage();
       var token = storage.read('token');
 
-      var url = '$baseUrl/api/mobile/fisherman-tim';
+      // Memuat data aktif
+      isLoading.value = true;
 
-      var response = await http.get(
-        Uri.parse(url),
-        headers: {
-          'Authorization': 'Bearer $token'
-        }, // Mengatur header Authorization dengan token
-      );
+      // Permintaan ke API Service
+      var response = await apiService.fetchFishermanTeams(token);
+
       print(response.body);
+      if (response.statusCode == 200) {
+        // Testing data = null atau kosong
+        // var data = null;
+
+        // Menguraikan data JSON ke variabel data
+        var data = json.decode(response.body);
+        fishermanTeams.value = List<Map<String, dynamic>>.from(data);
+        print(data);
+      }
+
+      // Memuat data selesai
+      isLoading.value = false;
     } catch (e) {
       print(e);
+
+      // Memuat data selesai
+      isLoading.value = false;
     }
   }
 }

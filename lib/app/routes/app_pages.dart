@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import '../modules/allFishermanTeam/bindings/all_fisherman_team_binding.dart';
 import '../modules/allFishermanTeam/views/all_fisherman_team_view.dart';
 import '../modules/balance/bindings/balance_binding.dart';

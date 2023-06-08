@@ -31,7 +31,7 @@ class BalanceView extends GetView<BalanceController> {
           ),
           child: Text(
             "Lautan Uang",
-            style: textAppBar,
+            style: textLargePrussianBlueBold,
           ),
         ),
         actions: [

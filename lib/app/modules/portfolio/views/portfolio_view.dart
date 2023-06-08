@@ -31,7 +31,7 @@ class PortfolioView extends GetView<PortfolioController> {
           ),
           child: Text(
             "Lautan Uang",
-            style: textAppBar,
+            style: textLargePrussianBlueBold,
           ),
         ),
         actions: [

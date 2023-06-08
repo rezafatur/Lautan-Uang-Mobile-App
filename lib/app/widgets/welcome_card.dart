@@ -34,7 +34,12 @@ class WelcomeCard extends StatelessWidget {
 
     return Container(
       width: sizeW,
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
+      padding: const EdgeInsets.only(
+        left: 20,
+        right: 20,
+        top: 20,
+        bottom: 20,
+      ),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           begin: Alignment.topCenter,
@@ -52,12 +57,13 @@ class WelcomeCard extends StatelessWidget {
         children: [
           // Ucapan Selamat Pagi/Siang/Sore/Malam
           Text(
-            "$greeting, Reza",
-            style: textUcapan,
+            "$greeting, Investor!",
+            style: textLargeAzureWhite500,
           ),
           const SizedBox(
             height: 20,
           ),
+
           // Box Saldo dan Poin
           Container(
             width: sizeW,
@@ -85,15 +91,16 @@ class WelcomeCard extends StatelessWidget {
                           left: 10,
                         ),
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               "Saldo",
-                              style: textSaldoPoinHome,
+                              style: textSmallPrussianBlue,
                             ),
                             Text(
                               "Rp10.000.000",
-                              style: saldoPoinHome,
+                              style: textSmallPrussianBlueBold,
                             ),
                           ],
                         ),
@@ -119,11 +126,11 @@ class WelcomeCard extends StatelessWidget {
                           children: [
                             Text(
                               "Poin",
-                              style: textSaldoPoinHome,
+                              style: textSmallPrussianBlue,
                             ),
                             Text(
                               "10.000",
-                              style: saldoPoinHome,
+                              style: textSmallPrussianBlueBold,
                             ),
                           ],
                         ),

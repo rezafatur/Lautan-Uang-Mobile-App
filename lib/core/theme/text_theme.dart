@@ -2,6 +2,76 @@ import 'package:flutter/material.dart';
 import 'package:lautan_uang/core/utils/size_configs.dart';
 import 'colors.dart';
 
+// Text with Prussian Blue Color (Large, Medium, and Small)
+final textSmallPrussianBlue = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  color: PrussianBlueColor,
+);
+
+final textVerySmallPrussianBlueNormal = TextStyle(
+  fontSize: SizeConfig.blockHorizontal! * 2.5,
+  fontWeight: FontWeight.normal,
+  color: PrussianBlueColor,
+);
+
+final textSmallPrussianBlue500 = TextStyle(
+  color: PrussianBlueColor,
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.w500,
+);
+
+final textMediumPrussianBlue500 = TextStyle(
+  color: PrussianBlueColor,
+  fontSize: SizeConfig.blockHorizontal! * 4,
+  fontWeight: FontWeight.w500,
+);
+
+final textSmallPrussianBlueBold = TextStyle(
+  color: PrussianBlueColor,
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+);
+
+final textLargePrussianBlueBold = TextStyle(
+  color: PrussianBlueColor,
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+);
+
+// Text with Azure White Color (Large, Medium, and Small)
+final textSmallAzureWhiteBold = TextStyle(
+  color: AzureishWhiteColor,
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+);
+
+final textLargeAzureWhite500 = TextStyle(
+  color: AzureishWhiteColor,
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.w500,
+);
+
+// Text with Black Color (Large, Medium, and Small)
+final textSmallBlackBold = TextStyle(
+  color: Colors.black,
+  fontSize: SizeConfig.blockHorizontal! * 3.5,
+  fontWeight: FontWeight.bold,
+);
+
+final textMediumBlackBold = TextStyle(
+  color: Colors.black,
+  fontSize: SizeConfig.blockHorizontal! * 4,
+  fontWeight: FontWeight.bold,
+);
+
+final textLargeBlackBold = TextStyle(
+  color: Colors.black,
+  fontSize: SizeConfig.blockHorizontal! * 5,
+  fontWeight: FontWeight.bold,
+);
+
+// Style Text dibawah akan diganti di update selanjutnya
+
 // Onboarding Screen
 final onboardTitle = TextStyle(
   fontSize: SizeConfig.blockHorizontal! * 5,
@@ -58,96 +128,6 @@ final daftarSudahPunyaAkun = TextStyle(
 );
 
 final daftarLogin = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.bold,
-  color: PrussianBlueColor,
-);
-
-// Home Screen
-final textAppBar = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 5,
-  fontWeight: FontWeight.bold,
-  color: PrussianBlueColor,
-);
-
-final textTawaran = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.w500,
-  color: PrussianBlueColor,
-);
-
-final textInvestasi = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.w500,
-  color: PrussianBlueColor,
-);
-
-final textSegeraHadir = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.w500,
-  color: PrussianBlueColor,
-);
-
-final textBantuNelayan = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.w500,
-  color: PrussianBlueColor,
-);
-
-final textLihatSemua = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.bold,
-  color: AzureishWhiteColor,
-);
-
-final textLihatSemua2 = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.bold,
-  color: PrussianBlueColor,
-);
-
-final textTimNelayan = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 4,
-  fontWeight: FontWeight.w500,
-  color: PrussianBlueColor,
-);
-
-final textNilaiBisnis = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 2.5,
-  fontWeight: FontWeight.normal,
-  color: PrussianBlueColor,
-);
-
-final textTotalInvestasi = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.w500,
-  color: PrussianBlueColor,
-);
-
-final textNamaProvinsi = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.w500,
-  color: PrussianBlueColor,
-);
-
-final textTotalNelayan = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 2.5,
-  fontWeight: FontWeight.normal,
-  color: PrussianBlueColor,
-);
-
-final textUcapan = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 5,
-  fontWeight: FontWeight.w500,
-  color: AzureishWhiteColor,
-);
-
-final textSaldoPoinHome = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  color: PrussianBlueColor,
-);
-
-final saldoPoinHome = TextStyle(
   fontSize: SizeConfig.blockHorizontal! * 3.5,
   fontWeight: FontWeight.bold,
   color: PrussianBlueColor,
@@ -304,43 +284,6 @@ final textPengeluaran2FishermanDetail = TextStyle(
 final textInvestasiSekarang = TextStyle(
   fontSize: SizeConfig.blockHorizontal! * 3.5,
   color: Colors.white,
-);
-
-// All Fisherman Team Screen
-final textAppBarAllFisherman = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 5,
-  fontWeight: FontWeight.bold,
-  color: Colors.black,
-);
-
-final textAllFishermanKosong = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 5,
-  fontWeight: FontWeight.bold,
-  color: PrussianBlueColor,
-);
-
-final textAllFishermanTeam = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 4,
-  fontWeight: FontWeight.bold,
-  color: Colors.black,
-);
-
-final textAllFishermanPercentage = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.bold,
-  color: Colors.black,
-);
-
-final textAllFishermanValue = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.bold,
-  color: Colors.black,
-);
-
-final textAllFishermanInvestor = TextStyle(
-  fontSize: SizeConfig.blockHorizontal! * 3.5,
-  fontWeight: FontWeight.bold,
-  color: Colors.black,
 );
 
 // Portfolio Screen

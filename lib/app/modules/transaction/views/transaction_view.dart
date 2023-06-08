@@ -31,7 +31,7 @@ class TransactionView extends GetView<TransactionController> {
           ),
           child: Text(
             "Lautan Uang",
-            style: textAppBar,
+            style: textLargePrussianBlueBold,
           ),
         ),
         actions: [
