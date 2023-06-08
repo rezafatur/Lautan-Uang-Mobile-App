@@ -113,9 +113,9 @@ class HomeView extends GetView<HomeController> {
                           ),
                         ),
                         items: [
-                          "assets/images/ContohTawaran1.png",
-                          "assets/images/ContohTawaran2.png",
-                          "assets/images/ContohTawaran3.png",
+                          "assets/images/Tawaran1.png",
+                          "assets/images/Tawaran2.png",
+                          "assets/images/Tawaran3.png",
                         ].map(
                           (i) {
                             return Builder(
@@ -582,9 +582,9 @@ class HomeView extends GetView<HomeController> {
                           ),
                         ),
                         items: [
-                          "assets/images/ContohTawaran1.png",
-                          "assets/images/ContohTawaran2.png",
-                          "assets/images/ContohTawaran3.png",
+                          "assets/images/Tawaran1.png",
+                          "assets/images/Tawaran2.png",
+                          "assets/images/Tawaran3.png",
                         ].map(
                           (i) {
                             return Builder(

@@ -8,6 +8,7 @@ import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
   const ProfileView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Get.put(ProfileController());
@@ -29,6 +30,7 @@ class ProfileView extends GetView<ProfileController> {
     }
 
     return Scaffold(
+      // Navigasi Bagian Atas
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -37,7 +39,7 @@ class ProfileView extends GetView<ProfileController> {
         ),
         title: Text(
           "Profil",
-          style: textAppBarProfile,
+          style: textLargeBlackBold,
         ),
       ),
       body: SingleChildScrollView(
@@ -68,7 +70,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   child: Text(
                     "Nama",
-                    style: textHintProfile,
+                    style: textSmallBlack,
                   ),
                 ),
                 const Padding(
@@ -100,7 +102,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   child: Text(
                     "Tempat Lahir",
-                    style: textHintProfile,
+                    style: textSmallBlack,
                   ),
                 ),
                 const Padding(
@@ -132,7 +134,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   child: Text(
                     "Tanggal Lahir",
-                    style: textHintProfile,
+                    style: textSmallBlack,
                   ),
                 ),
                 Padding(
@@ -174,7 +176,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   child: Text(
                     "Gender",
-                    style: textHintProfile,
+                    style: textSmallBlack,
                   ),
                 ),
                 Padding(
@@ -226,7 +228,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   child: Text(
                     "Email",
-                    style: textHintProfile,
+                    style: textSmallBlack,
                   ),
                 ),
                 const Padding(
@@ -258,7 +260,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   child: Text(
                     "Nomor Telepon",
-                    style: textHintProfile,
+                    style: textSmallBlack,
                   ),
                 ),
                 const Padding(
@@ -290,7 +292,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   child: Text(
                     "NIK",
-                    style: textHintProfile,
+                    style: textSmallBlack,
                   ),
                 ),
                 Padding(
@@ -325,7 +327,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   child: Text(
                     "NPWP",
-                    style: textHintProfile,
+                    style: textSmallBlack,
                   ),
                 ),
                 Padding(
@@ -360,7 +362,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   child: Text(
                     "Password",
-                    style: textHintProfile,
+                    style: textSmallBlack,
                   ),
                 ),
                 Padding(
@@ -412,7 +414,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   child: Text(
                     'Simpan',
-                    style: textSimpanProfile,
+                    style: textSmallWhite,
                   ),
                 ),
               ),

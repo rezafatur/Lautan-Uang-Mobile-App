@@ -27,7 +27,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
         ),
         title: Text(
           "Detail Nelayan",
-          style: textAppBarFishermanDetail,
+          style: textLargeBlackBold,
         ),
       ),
       body: SingleChildScrollView(
@@ -47,9 +47,9 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                 ),
               ),
               items: [
-                "assets/images/ContohTawaran1.png",
-                "assets/images/ContohTawaran2.png",
-                "assets/images/ContohTawaran3.png",
+                "assets/images/DetailNelayan1.png",
+                "assets/images/DetailNelayan2.png",
+                "assets/images/DetailNelayan3.png",
               ].map(
                 (i) {
                   return Builder(
@@ -80,7 +80,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Samarinda, Kalimantan Timur",
-                      style: textLokasiFishermanDetail,
+                      style: textMediumBlack,
                     ),
                   ),
                   const SizedBox(
@@ -90,7 +90,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Nelayan Lautan Api Merah Putih",
-                      style: textTeamFishermanDetail,
+                      style: textLargeBlackBold,
                     ),
                   ),
                 ],
@@ -114,7 +114,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             "Rp 552.200.00",
-                            style: textFundFishermanDetail,
+                            style: textLargePrussianBlueBold,
                           ),
                         ),
                       ),
@@ -123,7 +123,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                           alignment: Alignment.centerRight,
                           child: Text(
                             "dari target Rp 1.000.000.000",
-                            style: textTargetFishermanDetail,
+                            style: textSmallGrey,
                           ),
                         ),
                       ),
@@ -146,7 +146,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "190 Investor",
-                      style: textTotalInvestorFishermanDetail,
+                      style: textSmallGrey,
                     ),
                   ),
                 ],
@@ -185,8 +185,8 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                       child: Text(
                         "Statistik",
                         style: controller.selectedCategory.value == "Statistik"
-                            ? textStatistik1FishermanDetail
-                            : textStatistik2FishermanDetail,
+                            ? textSmallWhite
+                            : textSmallPrussianBlue,
                       ),
                     ),
                   ),
@@ -214,8 +214,8 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                       child: Text(
                         "Histori",
                         style: controller.selectedCategory.value == "Histori"
-                            ? textHistori1FishermanDetail
-                            : textHistori2FishermanDetail,
+                            ? textSmallWhite
+                            : textSmallPrussianBlue,
                       ),
                     ),
                   ),
@@ -262,7 +262,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
             ),
             child: Text(
               'Investasi Sekarang',
-              style: textInvestasiSekarang,
+              style: textSmallWhite,
             ),
           ),
         ),

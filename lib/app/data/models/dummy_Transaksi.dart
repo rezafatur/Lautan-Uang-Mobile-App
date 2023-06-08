@@ -10,7 +10,7 @@ class Transaksi {
   });
 }
 
-List<Transaksi> TransaksiContents = [
+List<Transaksi> transaksiContents = [
   Transaksi(
     fishermanTeam: "Nelayan Lautan Api Merah Putih",
     totalPortfolio: 10000000,

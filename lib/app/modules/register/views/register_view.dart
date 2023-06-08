@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:lautan_uang/app/modules/home/views/home_view.dart';
 import 'package:lautan_uang/app/modules/login/views/login_view.dart';
 import 'package:lautan_uang/core/theme/colors.dart';
 import 'package:lautan_uang/core/theme/text_theme.dart';
@@ -13,6 +11,7 @@ class RegisterView extends GetView<RegisterController> {
   RegisterView({Key? key}) : super(key: key);
 
   final pageController = PageController();
+
   @override
   final RegisterController controller = Get.put(RegisterController());
   final TextEditingController nameController = TextEditingController();
@@ -26,7 +25,7 @@ class RegisterView extends GetView<RegisterController> {
     double sizeW = SizeConfig.screenWidth!;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      // Navigasi Bagian Atas
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -49,13 +48,16 @@ class RegisterView extends GetView<RegisterController> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Header Buat Akun
               Text(
                 "Buat Akun",
-                style: daftarHeader,
+                style: textExtraLargePrussianBlueBold,
               ),
               const SizedBox(
                 height: 20,
               ),
+
+              // Gambar Buat Akun
               Center(
                 child: Image.asset(
                   "assets/images/Register.png",
@@ -65,6 +67,8 @@ class RegisterView extends GetView<RegisterController> {
               const SizedBox(
                 height: 20,
               ),
+
+              // Textfield untuk Memasukkan Nama
               TextField(
                 controller: nameController,
                 keyboardType: TextInputType.name,
@@ -88,6 +92,8 @@ class RegisterView extends GetView<RegisterController> {
               const SizedBox(
                 height: 20,
               ),
+
+              // Textfield untuk Memasukkan Email
               TextField(
                 controller: emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -111,6 +117,8 @@ class RegisterView extends GetView<RegisterController> {
               const SizedBox(
                 height: 20,
               ),
+
+              // Textfield untuk Memasukkan Password
               Material(
                 child: Obx(
                   () => TextField(
@@ -150,6 +158,8 @@ class RegisterView extends GetView<RegisterController> {
               const SizedBox(
                 height: 20,
               ),
+
+              // Textfield untuk Konfirmasi Password
               Material(
                 child: Obx(
                   () => TextField(
@@ -189,6 +199,8 @@ class RegisterView extends GetView<RegisterController> {
               const SizedBox(
                 height: 20,
               ),
+
+              // Button atau Tombol "Daftar"
               ElevatedButton(
                 onPressed: () {
                   controller.registerUser(nameController.text,
@@ -205,27 +217,29 @@ class RegisterView extends GetView<RegisterController> {
                 ),
                 child: Text(
                   "Daftar",
-                  style: daftarButton,
+                  style: textLargeAzureWhite,
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
+
+              // Pesan Error
               Obx(
                 () => Text(
                   controller.errorMessage.value,
-                  style: const TextStyle(
-                    color: Colors.red,
-                  ),
+                  style: textErrorMessageBold,
                 ),
               ),
+
+              // Jika Sudah Punya Akun, Kembali ke Login
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     "Sudah punya akun?",
-                    style: daftarSudahPunyaAkun,
+                    style: textSmallBlack,
                   ),
                   TextButton(
                     onPressed: () {
@@ -235,7 +249,7 @@ class RegisterView extends GetView<RegisterController> {
                     },
                     child: Text(
                       "Masuk",
-                      style: daftarLogin,
+                      style: textSmallPrussianBlueBold,
                     ),
                   ),
                 ],
@@ -244,6 +258,8 @@ class RegisterView extends GetView<RegisterController> {
           ),
         ),
       ),
+      // Warna Background atau Latar Belakang
+      backgroundColor: Colors.white,
     );
   }
 }

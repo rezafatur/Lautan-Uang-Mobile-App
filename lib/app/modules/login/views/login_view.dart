@@ -10,6 +10,7 @@ class LoginView extends GetView<LoginController> {
   LoginView({Key? key}) : super(key: key);
 
   final pageController = PageController();
+
   @override
   final LoginController controller = Get.put(LoginController());
   final TextEditingController emailController = TextEditingController();
@@ -185,7 +186,7 @@ class LoginView extends GetView<LoginController> {
                           ),
                           child: Text(
                             "Masuk",
-                            style: loginButton,
+                            style: textLargeAzureWhite,
                           ),
                         ),
                         const SizedBox(
@@ -196,7 +197,7 @@ class LoginView extends GetView<LoginController> {
                         Obx(
                           () => Text(
                             controller.errorMessage.value,
-                            style: loginError,
+                            style: textErrorMessageBold,
                           ),
                         ),
 
@@ -207,7 +208,7 @@ class LoginView extends GetView<LoginController> {
                           children: [
                             Text(
                               "Belum punya akun?",
-                              style: loginBelumPunyaAkun,
+                              style: textSmallBlack,
                             ),
                             TextButton(
                               onPressed: () {
@@ -217,7 +218,7 @@ class LoginView extends GetView<LoginController> {
                               },
                               child: Text(
                                 "Daftar",
-                                style: loginDaftar,
+                                style: textSmallPrussianBlueBold,
                               ),
                             ),
                           ],

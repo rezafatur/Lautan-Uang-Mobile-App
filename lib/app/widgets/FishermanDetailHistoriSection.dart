@@ -22,7 +22,7 @@ class FishermanDetailHistoriSection extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Total Tangkapan",
-                        style: textTotalTangkapan1FishermanDetail,
+                        style: textSmallBlack,
                       ),
                     ),
                     const SizedBox(
@@ -34,11 +34,11 @@ class FishermanDetailHistoriSection extends StatelessWidget {
                         children: [
                           Text(
                             "10 ton",
-                            style: textTotalTangkapan2FishermanDetail,
+                            style: textMediumLargePrussianBlueBold,
                           ),
                           Text(
                             "/bulan",
-                            style: textTotalTangkapan1FishermanDetail,
+                            style: textSmallBlack,
                           ),
                         ],
                       ),
@@ -53,7 +53,7 @@ class FishermanDetailHistoriSection extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Pendapatan",
-                        style: textPendapatan1FishermanDetail,
+                        style: textSmallBlack,
                       ),
                     ),
                     const SizedBox(
@@ -65,11 +65,11 @@ class FishermanDetailHistoriSection extends StatelessWidget {
                         children: [
                           Text(
                             "100 juta",
-                            style: textPendapatan2FishermanDetail,
+                            style: textMediumLargePrussianBlueBold,
                           ),
                           Text(
                             "/bulan",
-                            style: textPendapatan1FishermanDetail,
+                            style: textSmallBlack,
                           ),
                         ],
                       ),
@@ -98,7 +98,7 @@ class FishermanDetailHistoriSection extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Pengeluaran",
-                        style: textPengeluaran1FishermanDetail,
+                        style: textSmallBlack,
                       ),
                     ),
                     const SizedBox(
@@ -110,11 +110,11 @@ class FishermanDetailHistoriSection extends StatelessWidget {
                         children: [
                           Text(
                             "10 juta",
-                            style: textPengeluaran2FishermanDetail,
+                            style: textMediumLargePrussianBlueBold,
                           ),
                           Text(
                             "/bulan",
-                            style: textPengeluaran1FishermanDetail,
+                            style: textSmallBlack,
                           ),
                         ],
                       ),

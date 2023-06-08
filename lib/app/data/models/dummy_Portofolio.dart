@@ -12,8 +12,7 @@ class Portfolio {
   });
 }
 
-// ignore: non_constant_identifier_names
-List<Portfolio> PortfolioContents = [
+List<Portfolio> portfolioContents = [
   Portfolio(
     fishermanTeam: "Nelayan Lautan Api Merah Putih",
     fishermanLocation: "Samarinda, Kalimantan Timur",

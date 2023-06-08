@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:lautan_uang/app/controllers/page_index_controller.dart';
-import 'package:lautan_uang/app/data/models/portofolio_data.dart';
 import 'package:lautan_uang/core/theme/colors.dart';
 import 'package:lautan_uang/core/theme/text_theme.dart';
 import '../../../../core/utils/size_configs.dart';
+import '../../../data/models/dummy_Portofolio.dart';
 import '../../profile/views/profile_view.dart';
 import '../controllers/portfolio_controller.dart';
 
@@ -83,28 +83,28 @@ class PortfolioView extends GetView<PortfolioController> {
                   children: [
                     Text(
                       "Portofolio",
-                      style: textPortofolio,
+                      style: textLargeWhiteBold,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
                     Text(
                       "Total Portofolio",
-                      style: textTotalPortofolio,
+                      style: textSmallWhite,
                     ),
                     const SizedBox(
                       height: 5,
                     ),
                     Text(
                       "Rp 70.000.000",
-                      style: textTotalPortofolioRP,
+                      style: textExtraLargeWhiteBold,
                     ),
                     const SizedBox(
                       height: 5,
                     ),
                     Text(
                       "Pengembalian Rp 7.000.000 (10%)",
-                      style: textPengembalian,
+                      style: textSmallWhite,
                     ),
                   ],
                 ),
@@ -116,7 +116,7 @@ class PortfolioView extends GetView<PortfolioController> {
               height: sizeH * 0.99,
               child: SingleChildScrollView(
                 child: Column(
-                  children: PortfolioContents.isEmpty
+                  children: portfolioContents.isEmpty
                       ? [
                           const SizedBox(
                             height: 20,
@@ -146,14 +146,14 @@ class PortfolioView extends GetView<PortfolioController> {
                                   padding: const EdgeInsets.all(20),
                                   child: Text(
                                     "Belum Ada Portofolio",
-                                    style: textPortfolioKosong,
+                                    style: textLargeBlackBold,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                         ]
-                      : PortfolioContents.map(
+                      : portfolioContents.map(
                           (content) {
                             return Padding(
                               padding: const EdgeInsets.symmetric(
@@ -191,8 +191,7 @@ class PortfolioView extends GetView<PortfolioController> {
                                                 flex: 2,
                                                 child: Text(
                                                   content.fishermanTeam,
-                                                  style:
-                                                      textPortfolioFishermanTeam,
+                                                  style: textSmallBlackBold,
                                                 ),
                                               ),
                                               Expanded(
@@ -205,7 +204,7 @@ class PortfolioView extends GetView<PortfolioController> {
                                                   ).format(
                                                     content.totalPortfolio,
                                                   ),
-                                                  style: textPortfolioTotal,
+                                                  style: textSmallBlackBold,
                                                 ),
                                               ),
                                             ],
@@ -221,8 +220,7 @@ class PortfolioView extends GetView<PortfolioController> {
                                                 flex: 2,
                                                 child: Text(
                                                   content.fishermanLocation,
-                                                  style:
-                                                      textPortfolioFishermanLocation,
+                                                  style: textSmallBlack,
                                                 ),
                                               ),
                                               Expanded(
@@ -236,16 +234,14 @@ class PortfolioView extends GetView<PortfolioController> {
                                                         symbol: '+',
                                                       ).format(content
                                                           .returnPortfolio),
-                                                      style:
-                                                          textPortfolioPengembalian,
+                                                      style: textSmallBlack,
                                                     ),
                                                     const SizedBox(
                                                       width: 5,
                                                     ),
                                                     Text(
                                                       "(${((content.returnPortfolio) / (content.totalPortfolio) * 100).toStringAsFixed(2).replaceAll('.00', '')}%)",
-                                                      style:
-                                                          textPortfolioPengembalian,
+                                                      style: textSmallBlack,
                                                     ),
                                                   ],
                                                 ),

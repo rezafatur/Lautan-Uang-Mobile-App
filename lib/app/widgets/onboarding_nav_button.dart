@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lautan_uang/core/theme/colors.dart';
 import 'package:lautan_uang/core/theme/text_theme.dart';
 
+// ignore: camel_case_types
 class onboardNavButton extends StatelessWidget {
   const onboardNavButton(
       {Key? key, required this.name, required this.onPressed})
@@ -19,7 +20,7 @@ class onboardNavButton extends StatelessWidget {
         padding: const EdgeInsets.all(4.0),
         child: Text(
           name,
-          style: onboardNavText,
+          style: textSmallAzureWhite,
         ),
       ),
     );

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:lautan_uang/app/controllers/page_index_controller.dart';
-import 'package:lautan_uang/app/data/models/transaksi_data.dart';
 import 'package:lautan_uang/core/theme/colors.dart';
 import 'package:lautan_uang/core/theme/text_theme.dart';
 import '../../../../core/utils/size_configs.dart';
+import '../../../data/models/dummy_Transaksi.dart';
 import '../../profile/views/profile_view.dart';
 import '../controllers/transaction_controller.dart';
 
@@ -83,7 +83,7 @@ class TransactionView extends GetView<TransactionController> {
                   children: [
                     Text(
                       "Transaksi",
-                      style: textTransaksi,
+                      style: textLargeWhiteBold,
                     ),
                     const SizedBox(
                       height: 20,
@@ -96,14 +96,14 @@ class TransactionView extends GetView<TransactionController> {
                           children: [
                             Text(
                               "Sedang Proses",
-                              style: textTransaksiProses,
+                              style: textSmallWhite,
                             ),
                             const SizedBox(
                               height: 5,
                             ),
                             Text(
                               "2",
-                              style: textTotalTransaksiProses,
+                              style: textLargeWhiteBold,
                             ),
                           ],
                         ),
@@ -112,14 +112,14 @@ class TransactionView extends GetView<TransactionController> {
                           children: [
                             Text(
                               "Berhasil",
-                              style: textTransaksiBerhasil,
+                              style: textSmallWhite,
                             ),
                             const SizedBox(
                               height: 5,
                             ),
                             Text(
                               "5",
-                              style: textTotalTransaksiBerhasil,
+                              style: textLargeWhiteBold,
                             ),
                           ],
                         ),
@@ -128,14 +128,14 @@ class TransactionView extends GetView<TransactionController> {
                           children: [
                             Text(
                               "Gagal",
-                              style: textTransaksiGagal,
+                              style: textSmallWhite,
                             ),
                             const SizedBox(
                               height: 5,
                             ),
                             Text(
                               "0",
-                              style: textTotalTransaksiGagal,
+                              style: textLargeWhiteBold,
                             ),
                           ],
                         ),
@@ -150,7 +150,7 @@ class TransactionView extends GetView<TransactionController> {
             SizedBox(
               height: sizeH * 0.99,
               child: Column(
-                children: TransaksiContents.isEmpty
+                children: transaksiContents.isEmpty
                     ? [
                         const SizedBox(
                           height: 20,
@@ -180,14 +180,14 @@ class TransactionView extends GetView<TransactionController> {
                                 padding: const EdgeInsets.all(20),
                                 child: Text(
                                   "Belum Ada Transaksi",
-                                  style: textTransaksiKosong,
+                                  style: textLargeBlackBold,
                                 ),
                               ),
                             ),
                           ),
                         ),
                       ]
-                    : TransaksiContents.map(
+                    : transaksiContents.map(
                         (content) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(
@@ -227,7 +227,7 @@ class TransactionView extends GetView<TransactionController> {
                                             children: [
                                               Text(
                                                 content.fishermanTeam,
-                                                style: textTransaksiNelayan,
+                                                style: textSmallBlackBold,
                                               ),
                                               const SizedBox(
                                                 height: 5,
@@ -240,7 +240,7 @@ class TransactionView extends GetView<TransactionController> {
                                                 ).format(
                                                   content.totalPortfolio,
                                                 ),
-                                                style: textTransaksiportfolio,
+                                                style: textSmallBlack,
                                               ),
                                             ],
                                           ),
@@ -251,7 +251,7 @@ class TransactionView extends GetView<TransactionController> {
                                           flex: 1,
                                           child: Text(
                                             content.status,
-                                            style: textTransaksiStatus,
+                                            style: textSmallBlackBold,
                                             textAlign: TextAlign.end,
                                           ),
                                         ),

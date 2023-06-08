@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lautan_uang/core/theme/text_theme.dart';
 import 'package:lautan_uang/core/utils/size_configs.dart';
 
+// ignore: camel_case_types
 class onboardTextButton extends StatelessWidget {
   const onboardTextButton(
       {Key? key,
@@ -24,12 +25,12 @@ class onboardTextButton extends StatelessWidget {
         width: SizeConfig.blockHorizontal! * 100,
         child: TextButton(
           onPressed: onPressed,
-          child: Text(
-            buttonName,
-            style: onboardNavText,
-          ),
           style: TextButton.styleFrom(
             backgroundColor: backgroundColor,
+          ),
+          child: Text(
+            buttonName,
+            style: textSmallAzureWhite,
           ),
         ),
       ),

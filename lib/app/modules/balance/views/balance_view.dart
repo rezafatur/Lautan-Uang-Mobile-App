@@ -6,7 +6,7 @@ import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/text_theme.dart';
 import '../../../../core/utils/size_configs.dart';
 import '../../../controllers/page_index_controller.dart';
-import '../../../data/models/riwayat_saldo_data.dart';
+import '../../../data/models/dummy_Saldo.dart';
 import '../../profile/views/profile_view.dart';
 import '../controllers/balance_controller.dart';
 
@@ -94,8 +94,8 @@ class BalanceView extends GetView<BalanceController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Muhammad Reza Faturrahman",
-                            style: textProfileSaldo,
+                            "Investor",
+                            style: textMediumWhiteBold,
                           ),
                           const SizedBox(
                             height: 5,
@@ -110,7 +110,7 @@ class BalanceView extends GetView<BalanceController> {
                             },
                             child: Text(
                               "View Profile",
-                              style: textViewProfile,
+                              style: textSmallWhite,
                             ),
                           ),
                         ],
@@ -151,11 +151,11 @@ class BalanceView extends GetView<BalanceController> {
                           children: [
                             Text(
                               "Saldo",
-                              style: textSaldo,
+                              style: textSmallBlack,
                             ),
                             Text(
                               "Rp 10.000.000",
-                              style: textTotalSaldo,
+                              style: textLargeBlackBold,
                             ),
                           ],
                         ),
@@ -179,7 +179,7 @@ class BalanceView extends GetView<BalanceController> {
                             Expanded(
                               child: Text(
                                 "Tarik",
-                                style: textTarikSaldo,
+                                style: textLargeBlack,
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -193,7 +193,7 @@ class BalanceView extends GetView<BalanceController> {
                             Expanded(
                               child: Text(
                                 "Deposit",
-                                style: textDepositSaldo,
+                                style: textLargeBlack,
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -213,13 +213,13 @@ class BalanceView extends GetView<BalanceController> {
               ),
               child: Text(
                 "Riwayat",
-                style: textRiwayatSaldo,
+                style: textMediumBlackBold,
               ),
             ),
             SizedBox(
               height: sizeH * 0.99,
               child: Column(
-                children: RiwayatSaldoContents.isEmpty
+                children: saldoContents.isEmpty
                     ? [
                         const SizedBox(
                           height: 20,
@@ -249,14 +249,14 @@ class BalanceView extends GetView<BalanceController> {
                                 padding: const EdgeInsets.all(20),
                                 child: Text(
                                   "Belum Ada Riwayat",
-                                  style: textRiwayatKosong,
+                                  style: textLargeBlackBold,
                                 ),
                               ),
                             ),
                           ),
                         ),
                       ]
-                    : RiwayatSaldoContents.map(
+                    : saldoContents.map(
                         (content) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -293,14 +293,14 @@ class BalanceView extends GetView<BalanceController> {
                                             children: [
                                               Text(
                                                 content.tanggalSaldo,
-                                                style: textTanggalSaldo,
+                                                style: textSmallBlack,
                                               ),
                                               const SizedBox(
                                                 height: 5,
                                               ),
                                               Text(
                                                 content.jenisSaldo,
-                                                style: textJenisSaldo,
+                                                style: textSmallBlackBold,
                                               ),
                                             ],
                                           ),
@@ -315,7 +315,7 @@ class BalanceView extends GetView<BalanceController> {
                                             children: [
                                               Text(
                                                 content.statusSaldo,
-                                                style: textStatusSaldo,
+                                                style: textSmallBlack,
                                               ),
                                               const SizedBox(
                                                 height: 5,
@@ -328,7 +328,7 @@ class BalanceView extends GetView<BalanceController> {
                                                 ).format(
                                                   content.totalSaldo,
                                                 ),
-                                                style: textTotalRiwayatSaldo,
+                                                style: textSmallBlackBold,
                                               ),
                                             ],
                                           ),

@@ -62,7 +62,7 @@ class OnboardingView extends GetView<OnboardingController> {
                       ),
                       child: Text(
                         OnboardingContents[index].title,
-                        style: onboardTitle,
+                        style: textLargeAzureWhiteBold,
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -89,7 +89,7 @@ class OnboardingView extends GetView<OnboardingController> {
                       ),
                       child: Text(
                         OnboardingContents[index].description,
-                        style: onboardDescription,
+                        style: textSmallAzureWhite,
                         textAlign: TextAlign.center,
                       ),
                     ),

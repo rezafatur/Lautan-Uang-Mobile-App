@@ -22,7 +22,7 @@ class FishermanDetailStatistikSection extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Kapitalisasi Pasar",
-                        style: textKapitalisasiPasar1FishermanDetail,
+                        style: textSmallBlack,
                       ),
                     ),
                     const SizedBox(
@@ -32,7 +32,7 @@ class FishermanDetailStatistikSection extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Rp 1.050.000.000",
-                        style: textKapitalisasiPasar2FishermanDetail,
+                        style: textMediumLargePrussianBlueBold,
                       ),
                     ),
                   ],
@@ -45,7 +45,7 @@ class FishermanDetailStatistikSection extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Total Aset",
-                        style: textTotalAset1FishermanDetail,
+                        style: textSmallBlack,
                       ),
                     ),
                     const SizedBox(
@@ -55,7 +55,7 @@ class FishermanDetailStatistikSection extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Rp 55.000.000",
-                        style: textTotalAset2FishermanDetail,
+                        style: textMediumLargePrussianBlueBold,
                       ),
                     ),
                   ],
@@ -82,7 +82,7 @@ class FishermanDetailStatistikSection extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Hasil Dividen",
-                        style: textHasilDividen1FishermanDetail,
+                        style: textSmallBlack,
                       ),
                     ),
                     const SizedBox(
@@ -92,7 +92,7 @@ class FishermanDetailStatistikSection extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "5%",
-                        style: textHasilDividen2FishermanDetail,
+                        style: textMediumLargePrussianBlueBold,
                       ),
                     ),
                   ],
@@ -105,7 +105,7 @@ class FishermanDetailStatistikSection extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Rasio Utang Modal",
-                        style: textRasioUtang1FishermanDetail,
+                        style: textSmallBlack,
                       ),
                     ),
                     const SizedBox(
@@ -115,7 +115,7 @@ class FishermanDetailStatistikSection extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "49%",
-                        style: textRasioUtang2FishermanDetail,
+                        style: textMediumLargePrussianBlueBold,
                       ),
                     ),
                   ],

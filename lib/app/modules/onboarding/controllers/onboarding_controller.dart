@@ -7,13 +7,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 class OnboardingController extends GetxController {
   var currentPage = 0.obs;
 
-  Future<void> onPageChanged(int index) async {
-    currentPage.value = index;
-
-    if (index == OnboardingContents.length - 1) {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setBool('isFirstTime', false);
-    }
+  @override
+  void onInit() {
+    super.onInit();
+    checkFirstTime();
   }
 
   void checkFirstTime() async {
@@ -24,9 +21,12 @@ class OnboardingController extends GetxController {
     }
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-    checkFirstTime();
+  Future<void> onPageChanged(int index) async {
+    currentPage.value = index;
+
+    if (index == OnboardingContents.length - 1) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('isFirstTime', false);
+    }
   }
 }
