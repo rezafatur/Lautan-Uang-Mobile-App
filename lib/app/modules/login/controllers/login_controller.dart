@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../../../controllers/page_index_controller.dart';
 import '../../../data/services/api_service.dart';
 import '../../../data/models/local_storage_service.dart';
 
@@ -8,6 +9,9 @@ class LoginController extends GetxController {
   var showPassword = true.obs;
   final LocalStorageService _localStorageService =
       Get.find<LocalStorageService>();
+
+  // Page Controller untuk Home, Portofolio, Transaksi, dan Saldo
+  final pageC = Get.find<PageIndexController>();
 
   Future<void> loginUser(String email, String password) async {
     try {
@@ -19,7 +23,7 @@ class LoginController extends GetxController {
         await _localStorageService.setToken(token);
 
         // Pindah ke Halaman Home
-        Get.offNamed('/home');
+        pageC.changePage(0);
       } else {
         // Jika Terjadi Kesalahan, Tampilkan Pesan Error
         var message = "Email atau Password Salah";

@@ -7,12 +7,12 @@ import '../../../../core/theme/text_theme.dart';
 import '../../../../core/utils/size_configs.dart';
 import '../../../controllers/page_index_controller.dart';
 import '../../../data/models/dummy_Saldo.dart';
-import '../../profile/views/profile_view.dart';
 import '../controllers/balance_controller.dart';
 
 class BalanceView extends GetView<BalanceController> {
   BalanceView({Key? key}) : super(key: key);
 
+  // Page Controller untuk Home, Portofolio, Transaksi, dan Saldo
   final pageC = Get.find<PageIndexController>();
 
   @override
@@ -41,10 +41,7 @@ class BalanceView extends GetView<BalanceController> {
             ),
             child: InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ProfileView()),
-                );
+                Get.offNamed('profile');
               },
               child: const SizedBox(
                 width: 50,
@@ -102,11 +99,7 @@ class BalanceView extends GetView<BalanceController> {
                           ),
                           InkWell(
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const ProfileView()),
-                              );
+                              Get.offNamed('profile');
                             },
                             child: Text(
                               "View Profile",

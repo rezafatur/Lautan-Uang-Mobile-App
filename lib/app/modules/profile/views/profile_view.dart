@@ -1,33 +1,112 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:lautan_uang/app/modules/editPersonalData/views/edit_personal_data_view.dart';
+import 'package:lautan_uang/app/modules/editProfile/views/edit_profile_view.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/text_theme.dart';
 import '../../../../core/utils/size_configs.dart';
+import '../../../controllers/page_index_controller.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
-  const ProfileView({Key? key}) : super(key: key);
+  ProfileView({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    Get.put(ProfileController());
+  // Page Controller untuk Home, Portofolio, Transaksi, dan Saldo
+  final pageC = Get.find<PageIndexController>();
+
+  // Konfirmasi Keluar Akun
+  void showLogoutConfirmation(BuildContext context) {
     SizeConfig().init(context);
     double sizeH = SizeConfig.screenHeight!;
     double sizeW = SizeConfig.screenWidth!;
 
-    // Pilih Tanggal Lahir Investor
-    Future<void> selectDate(BuildContext context) async {
-      final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: controller.selectedDate.value ?? DateTime.now(),
-        firstDate: DateTime(1900),
-        lastDate: DateTime.now(),
-      );
-      if (picked != null && picked != controller.selectedDate.value) {
-        controller.selectedDate.value = picked;
-      }
-    }
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return BackdropFilter(
+          filter: ImageFilter.blur(
+            sigmaX: 5,
+            sigmaY: 5,
+          ),
+          child: AlertDialog(
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "Apakah Anda yakin ingin keluar dari akun Anda?",
+                  textAlign: TextAlign.center,
+                  style: textLargeBlackBold,
+                ),
+                SizedBox(
+                  height: sizeH * 0.025,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: AzureishWhiteColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 10,
+                            ),
+                            child: Text(
+                              "Tidak",
+                              style: textMediumBlack,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: sizeW * 0.05,
+                    ),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.offNamed('login');
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: AzureishWhiteColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 10,
+                            ),
+                            child: Text(
+                              "Ya",
+                              style: textMediumBlackBold,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    double sizeH = SizeConfig.screenHeight!;
+    double sizeW = SizeConfig.screenWidth!;
 
     return Scaffold(
       // Navigasi Bagian Atas
@@ -37,18 +116,17 @@ class ProfileView extends GetView<ProfileController> {
         iconTheme: const IconThemeData(
           color: Colors.black,
         ),
-        title: Text(
-          "Profil",
-          style: textLargeBlackBold,
+        title: Center(
+          child: Text(
+            "Profil",
+            style: textLargeBlackBold,
+          ),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             // Profile Icon
-            const SizedBox(
-              height: 20,
-            ),
             const Center(
               child: Icon(
                 Icons.account_circle_rounded,
@@ -60,31 +138,18 @@ class ProfileView extends GetView<ProfileController> {
               height: 20,
             ),
 
-            // Textfield Nama
+            // Nama dan Email Investor
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                  ),
-                  child: Text(
-                    "Nama",
-                    style: textSmallBlack,
-                  ),
+                Text(
+                  "Investor",
+                  style: textLargeBlackBold,
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: TextField(
-                    keyboardType: TextInputType.name,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: "Masukkan Nama",
-                    ),
-                  ),
+                Text(
+                  "investor@gmail.com",
+                  style: textSmallBlack,
                 ),
               ],
             ),
@@ -92,331 +157,370 @@ class ProfileView extends GetView<ProfileController> {
               height: 20,
             ),
 
-            // Textfield Tempat Lahir
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                  ),
-                  child: Text(
-                    "Tempat Lahir",
-                    style: textSmallBlack,
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: TextField(
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: "Masukkan Tempat Lahir",
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-
-            // Textfield Tanggal Lahir
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                  ),
-                  child: Text(
-                    "Tanggal Lahir",
-                    style: textSmallBlack,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: GestureDetector(
-                    onTap: () {
-                      selectDate(context);
-                    },
-                    child: AbsorbPointer(
-                      child: TextFormField(
-                        keyboardType: TextInputType.datetime,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintText: controller.selectedDate.value != null
-                              ? controller.dateFormatter
-                                  .format(controller.selectedDate.value!)
-                              : "Pilih Tanggal Lahir",
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-
-            // Textfield Jenis Kelamin
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                  ),
-                  child: Text(
-                    "Gender",
-                    style: textSmallBlack,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: DropdownButtonFormField<String>(
-                    dropdownColor: Colors.white,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: controller.selectedGender != null
-                          ? "Pilih Jenis Kelamin"
-                          : "Pilih Jenis Kelamin",
-                    ),
-                    value: controller.selectedGender,
-                    items: const [
-                      DropdownMenuItem(
-                        value: "Laki-Laki",
-                        child: Text(
-                          "Laki-Laki",
-                        ),
-                      ),
-                      DropdownMenuItem(
-                        value: "Perempuan",
-                        child: Text(
-                          "Perempuan",
-                        ),
-                      ),
-                    ],
-                    onChanged: (value) {
-                      controller.selectedGender = value!;
-                    },
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-
-            // Textfield Email
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                  ),
-                  child: Text(
-                    "Email",
-                    style: textSmallBlack,
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: "Masukkan Email",
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-
-            // Textfield Nomor Telepon
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                  ),
-                  child: Text(
-                    "Nomor Telepon",
-                    style: textSmallBlack,
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: "Masukkan Nomor Telepon",
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-
-            // Textfield Nomor Induk Kependudukan (NIK)
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                  ),
-                  child: Text(
-                    "NIK",
-                    style: textSmallBlack,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(16),
-                    ],
-                    decoration: const InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: "Masukkan NIK",
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-
-            // Textfield Nomor Pokok Wajib Pajak (NPWP)
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                  ),
-                  child: Text(
-                    "NPWP",
-                    style: textSmallBlack,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(16),
-                    ],
-                    decoration: const InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: "Masukkan NPWP",
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-
-            // Textfield Password
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                  ),
-                  child: Text(
-                    "Password",
-                    style: textSmallBlack,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: Material(
-                    child: Obx(
-                      () => TextField(
-                        obscureText: controller.showPassword.value,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          suffixIcon: GestureDetector(
-                            onTap: () {
-                              controller.showPassword.value =
-                                  !(controller.showPassword.value);
-                            },
-                            child: Icon(
-                              controller.showPassword.value != false
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: Colors.black,
-                            ),
-                          ),
-                          hintText: "Masukkan Password",
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-
-            // Button atau Tombol "Simpan"
+            // Menu Umum
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 20,
               ),
-              child: SizedBox(
-                width: sizeW,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: MaximumBlueColor,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Kategori Umum
+                  Text(
+                    "Umum",
+                    style: textMediumBlackBold,
                   ),
-                  child: Text(
-                    'Simpan',
-                    style: textSmallWhite,
+                  const SizedBox(
+                    height: 10,
                   ),
-                ),
+
+                  // Menu Home, Portofolio, Transaksi, dan Saldo
+                  Container(
+                    width: sizeW,
+                    height: sizeH * 0.3,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AzureishWhiteColor,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Home atau Halaman Utama
+                          InkWell(
+                            onTap: () {
+                              pageC.changePage(0);
+                            },
+                            child: SizedBox(
+                              width: sizeW,
+                              height: 35,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 35,
+                                    height: 35,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: PrussianBlueColor,
+                                    ),
+                                    child: Transform.scale(
+                                      scale: 0.5,
+                                      child: Image.asset(
+                                        "assets/icons/home.png",
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Home",
+                                    style: textMediumBlack,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+
+                          // Portofolio
+                          InkWell(
+                            onTap: () {
+                              pageC.changePage(1);
+                            },
+                            child: SizedBox(
+                              width: sizeW,
+                              height: 35,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 35,
+                                    height: 35,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: PrussianBlueColor,
+                                    ),
+                                    child: Transform.scale(
+                                      scale: 0.5,
+                                      child: Image.asset(
+                                        "assets/icons/portfolio.png",
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Portofolio",
+                                    style: textMediumBlack,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+
+                          // Transaksi
+                          InkWell(
+                            onTap: () {
+                              pageC.changePage(2);
+                            },
+                            child: SizedBox(
+                              width: sizeW,
+                              height: 35,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 35,
+                                    height: 35,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: PrussianBlueColor,
+                                    ),
+                                    child: Transform.scale(
+                                      scale: 0.5,
+                                      child: Image.asset(
+                                        "assets/icons/transaction.png",
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Transaksi",
+                                    style: textMediumBlack,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+
+                          // Saldo
+                          InkWell(
+                            onTap: () {
+                              pageC.changePage(3);
+                            },
+                            child: SizedBox(
+                              width: sizeW,
+                              height: 35,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 35,
+                                    height: 35,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: PrussianBlueColor,
+                                    ),
+                                    child: Transform.scale(
+                                      scale: 0.5,
+                                      child: Image.asset(
+                                        "assets/icons/wallet.png",
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Saldo",
+                                    style: textMediumBlack,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+
+            // Menu Akun
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Kategori Akun
+                  Text(
+                    "Akun",
+                    style: textMediumBlackBold,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+
+                  // Menu Edit Profil, Edit Data Diri, dan Keluar Akun
+                  Container(
+                    width: sizeW,
+                    height: sizeH * 0.23,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AzureishWhiteColor,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Edit Profil
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const EditProfileView()),
+                              );
+                            },
+                            child: SizedBox(
+                              width: sizeW,
+                              height: 35,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 35,
+                                    height: 35,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: PrussianBlueColor,
+                                    ),
+                                    child: Transform.scale(
+                                      scale: 0.5,
+                                      child: Image.asset(
+                                        "assets/icons/EditProfile.png",
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Edit profil",
+                                    style: textMediumBlack,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+
+                          // Edit Data Diri
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const EditPersonalDataView()),
+                              );
+                            },
+                            child: SizedBox(
+                              width: sizeW,
+                              height: 35,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 35,
+                                    height: 35,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: PrussianBlueColor,
+                                    ),
+                                    child: Transform.scale(
+                                      scale: 0.5,
+                                      child: Image.asset(
+                                        "assets/icons/EditPersonalData.png",
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Edit Personal Data",
+                                    style: textMediumBlack,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+
+                          // Keluar Akun
+                          InkWell(
+                            onTap: () {
+                              showLogoutConfirmation(context);
+                            },
+                            child: SizedBox(
+                              width: sizeW,
+                              height: 35,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 35,
+                                    height: 35,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: PrussianBlueColor,
+                                    ),
+                                    child: Transform.scale(
+                                      scale: 0.5,
+                                      child: Image.asset(
+                                        "assets/icons/Logout.png",
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    "Keluar Akun",
+                                    style: textMediumBlack,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 80,
+            ),
+
+            // Lautan Uang
+            Center(
+              child: Text(
+                "Lautan Uang",
+                style: textLargePrussianBlueBold,
               ),
             ),
             const SizedBox(

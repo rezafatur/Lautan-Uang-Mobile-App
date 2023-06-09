@@ -7,12 +7,12 @@ import 'package:lautan_uang/core/theme/colors.dart';
 import 'package:lautan_uang/core/theme/text_theme.dart';
 import '../../../../core/utils/size_configs.dart';
 import '../../../data/models/dummy_Transaksi.dart';
-import '../../profile/views/profile_view.dart';
 import '../controllers/transaction_controller.dart';
 
 class TransactionView extends GetView<TransactionController> {
   TransactionView({Key? key}) : super(key: key);
 
+  // Page Controller untuk Home, Portofolio, Transaksi, dan Saldo
   final pageC = Get.find<PageIndexController>();
 
   @override
@@ -41,10 +41,7 @@ class TransactionView extends GetView<TransactionController> {
             ),
             child: InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ProfileView()),
-                );
+                Get.offNamed('profile');
               },
               child: const SizedBox(
                 width: 50,

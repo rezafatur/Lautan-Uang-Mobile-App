@@ -6,7 +6,6 @@ import 'package:intl/intl.dart';
 import 'package:lautan_uang/app/controllers/page_index_controller.dart';
 import 'package:lautan_uang/app/data/models/dummy_PenawaranBaru.dart';
 import 'package:lautan_uang/app/modules/fishermanDetail/views/fisherman_detail_view.dart';
-import 'package:lautan_uang/app/modules/profile/views/profile_view.dart';
 import 'package:lautan_uang/app/routes/app_pages.dart';
 import 'package:lautan_uang/app/widgets/welcome_card.dart';
 import 'package:lautan_uang/core/theme/colors.dart';
@@ -18,6 +17,7 @@ import '../controllers/home_controller.dart';
 class HomeView extends GetView<HomeController> {
   HomeView({Key? key}) : super(key: key);
 
+  // Page Controller untuk Home, Portofolio, Transaksi, dan Saldo
   final pageC = Get.find<PageIndexController>();
 
   @override
@@ -46,10 +46,7 @@ class HomeView extends GetView<HomeController> {
             ),
             child: InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ProfileView()),
-                );
+                Get.offNamed('profile');
               },
               child: const SizedBox(
                 width: 50,

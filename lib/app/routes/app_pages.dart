@@ -1,8 +1,13 @@
 import 'package:get/get.dart';
+
 import '../modules/allFishermanTeam/bindings/all_fisherman_team_binding.dart';
 import '../modules/allFishermanTeam/views/all_fisherman_team_view.dart';
 import '../modules/balance/bindings/balance_binding.dart';
 import '../modules/balance/views/balance_view.dart';
+import '../modules/editPersonalData/bindings/edit_personal_data_binding.dart';
+import '../modules/editPersonalData/views/edit_personal_data_view.dart';
+import '../modules/editProfile/bindings/edit_profile_binding.dart';
+import '../modules/editProfile/views/edit_profile_view.dart';
 import '../modules/fishermanDetail/bindings/fisherman_detail_binding.dart';
 import '../modules/fishermanDetail/views/fisherman_detail_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -70,7 +75,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PROFILE,
-      page: () => const ProfileView(),
+      page: () => ProfileView(),
       binding: ProfileBinding(),
     ),
     GetPage(
@@ -82,6 +87,16 @@ class AppPages {
       name: _Paths.ALL_FISHERMAN_TEAM,
       page: () => const AllFishermanTeamView(),
       binding: AllFishermanTeamBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PROFILE,
+      page: () => const EditProfileView(),
+      binding: EditProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PERSONAL_DATA,
+      page: () => const EditPersonalDataView(),
+      binding: EditPersonalDataBinding(),
     ),
   ];
 }

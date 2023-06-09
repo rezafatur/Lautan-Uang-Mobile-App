@@ -13,6 +13,8 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const FISHERMAN_DETAIL = _Paths.FISHERMAN_DETAIL;
   static const ALL_FISHERMAN_TEAM = _Paths.ALL_FISHERMAN_TEAM;
+  static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
+  static const EDIT_PERSONAL_DATA = _Paths.EDIT_PERSONAL_DATA;
 }
 
 abstract class _Paths {
@@ -27,4 +29,6 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const FISHERMAN_DETAIL = '/fisherman-detail';
   static const ALL_FISHERMAN_TEAM = '/all-fisherman-team';
+  static const EDIT_PROFILE = '/edit-profile';
+  static const EDIT_PERSONAL_DATA = '/edit-personal-data';
 }

@@ -7,12 +7,12 @@ import 'package:lautan_uang/core/theme/colors.dart';
 import 'package:lautan_uang/core/theme/text_theme.dart';
 import '../../../../core/utils/size_configs.dart';
 import '../../../data/models/dummy_Portofolio.dart';
-import '../../profile/views/profile_view.dart';
 import '../controllers/portfolio_controller.dart';
 
 class PortfolioView extends GetView<PortfolioController> {
   PortfolioView({Key? key}) : super(key: key);
 
+  // Page Controller untuk Home, Portofolio, Transaksi, dan Saldo
   final pageC = Get.find<PageIndexController>();
 
   @override
@@ -41,10 +41,7 @@ class PortfolioView extends GetView<PortfolioController> {
             ),
             child: InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ProfileView()),
-                );
+                Get.offNamed('profile');
               },
               child: const SizedBox(
                 width: 50,
