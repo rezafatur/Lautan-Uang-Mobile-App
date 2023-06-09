@@ -237,7 +237,9 @@ class HomeView extends GetView<HomeController> {
                             SizedBox(
                               height: 25,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.offAllNamed(Routes.ALL_NEW_OFFER);
+                                },
                                 style: ElevatedButton.styleFrom(
                                   shape: const StadiumBorder(),
                                   backgroundColor: PrussianBlueColor,
@@ -307,7 +309,9 @@ class HomeView extends GetView<HomeController> {
                                 if (index == 5 &&
                                     PenawaranBaruContents.length > 5) {
                                   return InkWell(
-                                    onTap: () {},
+                                    onTap: () {
+                                      Get.offAllNamed(Routes.ALL_NEW_OFFER);
+                                    },
                                     child: SizedBox(
                                       width: 150,
                                       child: Container(
@@ -329,7 +333,7 @@ class HomeView extends GetView<HomeController> {
                                             ),
                                             Text(
                                               "Lihat Semua",
-                                              style: textSmallAzureWhiteBold,
+                                              style: textSmallPrussianBlueBold,
                                             ),
                                           ],
                                         ),
@@ -392,7 +396,7 @@ class HomeView extends GetView<HomeController> {
                                                         value:
                                                             PenawaranBaruContents[
                                                                         index]
-                                                                    .presentase /
+                                                                    .persentase /
                                                                 100,
                                                         backgroundColor: Colors
                                                             .grey
@@ -414,7 +418,7 @@ class HomeView extends GetView<HomeController> {
                                                                 textVerySmallPrussianBlueNormal,
                                                           ),
                                                           Text(
-                                                            "${PenawaranBaruContents[index].presentase}%",
+                                                            "${PenawaranBaruContents[index].persentase}%",
                                                             style:
                                                                 textVerySmallPrussianBlueNormal,
                                                           ),
@@ -433,7 +437,7 @@ class HomeView extends GetView<HomeController> {
                                                     symbol: 'Rp',
                                                   ).format(
                                                     PenawaranBaruContents[index]
-                                                        .totalInvestasi,
+                                                        .nilaiBisnis,
                                                   ),
                                                   style:
                                                       textSmallPrussianBlue500,
@@ -479,7 +483,9 @@ class HomeView extends GetView<HomeController> {
                             SizedBox(
                               height: 25,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.offAllNamed(Routes.ALL_PROVINCE);
+                                },
                                 style: ElevatedButton.styleFrom(
                                   shape: const StadiumBorder(),
                                   backgroundColor: PrussianBlueColor,
@@ -694,7 +700,7 @@ class HomeView extends GetView<HomeController> {
                                                   Text(
                                                     "Lihat Semua",
                                                     style:
-                                                        textSmallAzureWhiteBold,
+                                                        textSmallPrussianBlueBold,
                                                   ),
                                                 ],
                                               ),
@@ -860,7 +866,9 @@ class HomeView extends GetView<HomeController> {
                             SizedBox(
                               height: 25,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.offAllNamed(Routes.ALL_NEW_OFFER);
+                                },
                                 style: ElevatedButton.styleFrom(
                                   shape: const StadiumBorder(),
                                   backgroundColor: PrussianBlueColor,
@@ -930,7 +938,9 @@ class HomeView extends GetView<HomeController> {
                                 if (index == 5 &&
                                     PenawaranBaruContents.length > 5) {
                                   return InkWell(
-                                    onTap: () {},
+                                    onTap: () {
+                                      Get.offAllNamed(Routes.ALL_NEW_OFFER);
+                                    },
                                     child: SizedBox(
                                       width: 150,
                                       child: Container(
@@ -952,7 +962,7 @@ class HomeView extends GetView<HomeController> {
                                             ),
                                             Text(
                                               "Lihat Semua",
-                                              style: textSmallAzureWhiteBold,
+                                              style: textSmallPrussianBlueBold,
                                             ),
                                           ],
                                         ),
@@ -1015,7 +1025,7 @@ class HomeView extends GetView<HomeController> {
                                                         value:
                                                             PenawaranBaruContents[
                                                                         index]
-                                                                    .presentase /
+                                                                    .persentase /
                                                                 100,
                                                         backgroundColor: Colors
                                                             .grey
@@ -1037,7 +1047,7 @@ class HomeView extends GetView<HomeController> {
                                                                 textVerySmallPrussianBlueNormal,
                                                           ),
                                                           Text(
-                                                            "${PenawaranBaruContents[index].presentase}%",
+                                                            "${PenawaranBaruContents[index].persentase}%",
                                                             style:
                                                                 textVerySmallPrussianBlueNormal,
                                                           ),
@@ -1056,7 +1066,7 @@ class HomeView extends GetView<HomeController> {
                                                     symbol: 'Rp',
                                                   ).format(
                                                     PenawaranBaruContents[index]
-                                                        .totalInvestasi,
+                                                        .nilaiBisnis,
                                                   ),
                                                   style:
                                                       textSmallPrussianBlue500,
@@ -1102,7 +1112,9 @@ class HomeView extends GetView<HomeController> {
                             SizedBox(
                               height: 25,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.offAllNamed(Routes.ALL_PROVINCE);
+                                },
                                 style: ElevatedButton.styleFrom(
                                   shape: const StadiumBorder(),
                                   backgroundColor: PrussianBlueColor,
@@ -1183,7 +1195,7 @@ class HomeView extends GetView<HomeController> {
                                                         textVerySmallPrussianBlueNormal,
                                                   ),
                                                   Text(
-                                                    "${provinsiContents[index].presentase}%",
+                                                    "${provinsiContents[index].persentase}%",
                                                     style:
                                                         textVerySmallPrussianBlueNormal,
                                                   ),

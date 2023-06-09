@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
-
 import '../modules/allFishermanTeam/bindings/all_fisherman_team_binding.dart';
 import '../modules/allFishermanTeam/views/all_fisherman_team_view.dart';
+import '../modules/allNewOffer/bindings/all_new_offer_binding.dart';
+import '../modules/allNewOffer/views/all_new_offer_view.dart';
+import '../modules/allProvince/bindings/all_province_binding.dart';
+import '../modules/allProvince/views/all_province_view.dart';
 import '../modules/balance/bindings/balance_binding.dart';
 import '../modules/balance/views/balance_view.dart';
 import '../modules/editPersonalData/bindings/edit_personal_data_binding.dart';
@@ -97,6 +100,16 @@ class AppPages {
       name: _Paths.EDIT_PERSONAL_DATA,
       page: () => const EditPersonalDataView(),
       binding: EditPersonalDataBinding(),
+    ),
+    GetPage(
+      name: _Paths.ALL_NEW_OFFER,
+      page: () => const AllNewOfferView(),
+      binding: AllNewOfferBinding(),
+    ),
+    GetPage(
+      name: _Paths.ALL_PROVINCE,
+      page: () => const AllProvinceView(),
+      binding: AllProvinceBinding(),
     ),
   ];
 }
