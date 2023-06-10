@@ -10,21 +10,42 @@ import 'app/data/models/local_storage_service.dart';
 bool? seenOnboard;
 
 void main() async {
-  await GetStorage.init(); // initialize GetStorage
-  Get.put(LocalStorageService()); // register LocalStorageService
+  // Inisialisasi GetStorage untuk penggunaan local storage
+  await GetStorage.init();
+
+  // Menambahkan LocalStorageService ke GetX dependency injection
+  Get.put(LocalStorageService());
+
+  // Menambahkan PageIndexController ke GetX dependency injection (permanent: true agar tidak dihapus)
+  Get.put(PageIndexController(), permanent: true);
+
+  // Memastikan bahwa binding Flutter telah diinisialisasi
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Mengatur tampilan sistem UI overlay (status bar) menjadi transparan
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
+  // Menginisialisasi SharedPreferences
   SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  // Memeriksa apakah ini kali pertama aplikasi dijalankan
   bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
-  Get.put(PageIndexController(), permanent: true);
+
+  // Mengambil Token
+  var storage = GetStorage();
+  var token = storage.read('token');
+  String? storedToken = token;
 
   runApp(
     GetMaterialApp(
       title: "Lautan Uang",
       debugShowCheckedModeBanner: false,
-      initialRoute: isFirstTime ? Routes.ONBOARDING : Routes.LOGIN,
+      initialRoute: storedToken != null
+          ? Routes.HOME
+          : isFirstTime
+              ? Routes.ONBOARDING
+              : Routes.LOGIN,
       getPages: AppPages.routes,
     ),
   );

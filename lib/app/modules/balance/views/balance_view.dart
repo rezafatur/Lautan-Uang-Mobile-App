@@ -147,7 +147,7 @@ class BalanceView extends GetView<BalanceController> {
                               style: textSmallBlack,
                             ),
                             Text(
-                              "Rp 10.000.000",
+                              "Rp10.000.000",
                               style: textLargeBlackBold,
                             ),
                           ],
@@ -325,7 +325,7 @@ class BalanceView extends GetView<BalanceController> {
                                                 NumberFormat.currency(
                                                   locale: 'id',
                                                   decimalDigits: 0,
-                                                  symbol: '+',
+                                                  symbol: 'Rp',
                                                 ).format(
                                                   content.totalSaldo,
                                                 ),

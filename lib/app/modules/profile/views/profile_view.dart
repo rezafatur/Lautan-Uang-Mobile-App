@@ -72,7 +72,7 @@ class ProfileView extends GetView<ProfileController> {
                     Expanded(
                       child: GestureDetector(
                         onTap: () {
-                          Get.offNamed('login');
+                          controller.logoutUser();
                         },
                         child: Container(
                           decoration: BoxDecoration(

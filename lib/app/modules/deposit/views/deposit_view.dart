@@ -40,7 +40,7 @@ class DepositView extends GetView<DepositController> {
           },
         ),
         title: Text(
-          "Deposit",
+          "Deposito",
           style: textLargeBlackBold,
         ),
       ),
@@ -479,7 +479,7 @@ class DepositView extends GetView<DepositController> {
               backgroundColor: MaximumBlueColor,
             ),
             child: Text(
-              'Deposit Sekarang',
+              'Deposito Sekarang',
               style: textSmallWhite,
             ),
           ),
