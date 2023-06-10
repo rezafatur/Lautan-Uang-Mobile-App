@@ -6,7 +6,6 @@ import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/text_theme.dart';
 import '../../../../core/utils/size_configs.dart';
 import '../../../controllers/page_index_controller.dart';
-import '../../../routes/app_pages.dart';
 import '../controllers/invest_now_controller.dart';
 
 class InvestNowView extends GetView<InvestNowController> {
@@ -18,6 +17,8 @@ class InvestNowView extends GetView<InvestNowController> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+
+    // ignore: unused_local_variable
     double sizeH = SizeConfig.screenHeight!;
     double sizeW = SizeConfig.screenWidth!;
 
@@ -30,17 +31,12 @@ class InvestNowView extends GetView<InvestNowController> {
 
     return Scaffold(
       // Navigasi Bagian Atas
+      // Navigasi Bagian Atas
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: const IconThemeData(
           color: Colors.black,
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            pageC.changePage(0);
-          },
         ),
         title: Text(
           "Pembayaran",
@@ -50,7 +46,7 @@ class InvestNowView extends GetView<InvestNowController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Jumlah Dana
+            // Investasi Sekarang
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 20,
@@ -59,7 +55,7 @@ class InvestNowView extends GetView<InvestNowController> {
                 children: [
                   // Header
                   Text(
-                    "Jumlah Dana",
+                    "Investasi Sekarang",
                     style: textMediumBlackBold,
                   ),
                   const SizedBox(

@@ -15,6 +15,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
   Widget build(BuildContext context) {
     Get.put(FishermanDetailController());
     SizeConfig().init(context);
+    // ignore: unused_local_variable
     double sizeH = SizeConfig.screenHeight!;
     double sizeW = SizeConfig.screenWidth!;
 
@@ -553,7 +554,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
           width: sizeW,
           child: ElevatedButton(
             onPressed: () {
-              Get.offAllNamed(Routes.INVEST_NOW);
+              Navigator.pushNamed(context, Routes.INVEST_NOW);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: MaximumBlueColor,

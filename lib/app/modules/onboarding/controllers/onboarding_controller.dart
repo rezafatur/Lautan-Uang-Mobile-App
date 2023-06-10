@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lautan_uang/app/data/models/onboarding_data.dart';
 import 'package:lautan_uang/app/modules/login/views/login_view.dart';

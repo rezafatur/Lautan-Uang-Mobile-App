@@ -12,6 +12,7 @@ class EditProfileView extends GetView<EditProfileController> {
   Widget build(BuildContext context) {
     Get.put(EditProfileController());
     SizeConfig().init(context);
+    // ignore: unused_local_variable
     double sizeH = SizeConfig.screenHeight!;
     double sizeW = SizeConfig.screenWidth!;
 

@@ -34,6 +34,7 @@ class OnboardingView extends GetView<OnboardingController> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     double sizeH = SizeConfig.screenHeight!;
+    // ignore: unused_local_variable
     double sizeW = SizeConfig.screenWidth!;
 
     return Scaffold(

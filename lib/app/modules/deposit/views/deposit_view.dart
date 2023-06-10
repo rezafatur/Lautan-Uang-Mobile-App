@@ -14,6 +14,7 @@ class DepositView extends GetView<DepositController> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    // ignore: unused_local_variable
     double sizeH = SizeConfig.screenHeight!;
     double sizeW = SizeConfig.screenWidth!;
 

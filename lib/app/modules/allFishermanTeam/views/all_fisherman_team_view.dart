@@ -80,121 +80,134 @@ class AllFishermanTeamView extends GetView<AllFishermanTeamController> {
                             return Column(
                               children: [
                                 // Gambar, Nama Tim, Persentase, Nilai Bisnis, dan Total Investor
-                                Row(
-                                  children: [
-                                    // Gambar Tim Nelayan
-                                    Expanded(
-                                      flex: 1,
-                                      child: SizedBox(
-                                        height: sizeH * 0.1,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          child: Image.asset(
-                                            "assets/images/ContohTimNelayan1.png",
-                                            fit: BoxFit.cover,
+                                InkWell(
+                                  onTap: () {
+                                    Get.toNamed(
+                                      Routes.FISHERMAN_DETAIL,
+                                      arguments: {
+                                        'dataId': fishermanTeam['id'],
+                                      },
+                                    );
+                                  },
+                                  child: Row(
+                                    children: [
+                                      // Gambar Tim Nelayan
+                                      Expanded(
+                                        flex: 1,
+                                        child: SizedBox(
+                                          height: sizeH * 0.1,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            child: Image.asset(
+                                              "assets/images/ContohTimNelayan1.png",
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-
-                                    // Nama Tim, Persentase, Nilai Bisnis, dan Total Investor
-                                    Expanded(
-                                      flex: 3,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            fishermanTeam[
-                                                'fisherman_team_name'],
-                                            style: textMediumBlackBold,
-                                          ),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                "${fishermanTeam['percentage'].toStringAsFixed(2)}%",
-                                                style: textSmallBlackBold,
-                                              ),
-                                              const SizedBox(
-                                                height: 5,
-                                              ),
-                                              LinearProgressIndicator(
-                                                value: fishermanTeam[
-                                                        'percentage'] /
-                                                    100,
-                                                backgroundColor: Colors.grey
-                                                    .withOpacity(0.3),
-                                                valueColor:
-                                                    const AlwaysStoppedAnimation<
-                                                        Color>(
-                                                  PrussianBlueColor,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          const SizedBox(
-                                            height: 5,
-                                          ),
-                                          Row(
-                                            children: [
-                                              // Nilai Bisnis
-                                              Expanded(
-                                                flex: 2,
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    const Text(
-                                                      "Nilai Bisnis",
-                                                    ),
-                                                    Text(
-                                                      NumberFormat.currency(
-                                                        locale: 'id',
-                                                        decimalDigits: 0,
-                                                        symbol: 'Rp',
-                                                      ).format(
-                                                        fishermanTeam[
-                                                            'business_value'],
-                                                      ),
-                                                      style: textSmallBlackBold,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-
-                                              // Total Investor
-                                              Expanded(
-                                                flex: 2,
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.end,
-                                                  children: [
-                                                    const Text(
-                                                      "Total Investor",
-                                                    ),
-                                                    Text(
-                                                      fishermanTeam[
-                                                              'investor_count']
-                                                          .toString(),
-                                                      style: textSmallBlackBold,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                      const SizedBox(
+                                        width: 20,
                                       ),
-                                    ),
-                                  ],
+
+                                      // Nama Tim, Persentase, Nilai Bisnis, dan Total Investor
+                                      Expanded(
+                                        flex: 3,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              fishermanTeam[
+                                                  'fisherman_team_name'],
+                                              style: textMediumBlackBold,
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Text(
+                                                  "${fishermanTeam['percentage'].toStringAsFixed(2)}%",
+                                                  style: textSmallBlackBold,
+                                                ),
+                                                const SizedBox(
+                                                  height: 5,
+                                                ),
+                                                LinearProgressIndicator(
+                                                  value: fishermanTeam[
+                                                          'percentage'] /
+                                                      100,
+                                                  backgroundColor: Colors.grey
+                                                      .withOpacity(0.3),
+                                                  valueColor:
+                                                      const AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    PrussianBlueColor,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                            Row(
+                                              children: [
+                                                // Nilai Bisnis
+                                                Expanded(
+                                                  flex: 2,
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      const Text(
+                                                        "Nilai Bisnis",
+                                                      ),
+                                                      Text(
+                                                        NumberFormat.currency(
+                                                          locale: 'id',
+                                                          decimalDigits: 0,
+                                                          symbol: 'Rp',
+                                                        ).format(
+                                                          fishermanTeam[
+                                                              'business_value'],
+                                                        ),
+                                                        style:
+                                                            textSmallBlackBold,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+
+                                                // Total Investor
+                                                Expanded(
+                                                  flex: 2,
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.end,
+                                                    children: [
+                                                      const Text(
+                                                        "Total Investor",
+                                                      ),
+                                                      Text(
+                                                        fishermanTeam[
+                                                                'investor_count']
+                                                            .toString(),
+                                                        style:
+                                                            textSmallBlackBold,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 const SizedBox(
                                   height: 20,

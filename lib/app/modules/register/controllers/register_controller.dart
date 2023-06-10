@@ -17,6 +17,7 @@ class RegisterController extends GetxController {
         errorMessage.value = response['message'];
         // Jika berhasil register, alihkan ke halaman login
         Get.offNamed('/login');
+        // ignore: unnecessary_null_comparison
       } else if (response != null && response['errors'] != null) {
         // Jika terjadi kesalahan
         Map<String, dynamic> errors = response['errors'];
