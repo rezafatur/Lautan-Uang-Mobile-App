@@ -11,6 +11,14 @@ import 'colors.dart';
 // 5 = Large
 // 7 & 10 = Extra or Super Large
 
+// Text Normal and Bold
+const textNormal = TextStyle(
+  fontWeight: FontWeight.normal,
+);
+
+const textBold = TextStyle(
+  fontWeight: FontWeight.bold,
+);
 
 // Text with Prussian Blue Color (Large, Medium, and Small)
 final textSmallPrussianBlue = TextStyle(
@@ -95,6 +103,12 @@ final textSmallWhite = TextStyle(
   fontSize: SizeConfig.blockHorizontal! * 3.5,
 );
 
+final textExtraLargeWhiteNormal = TextStyle(
+  color: Colors.white,
+  fontWeight: FontWeight.normal,
+  fontSize: SizeConfig.blockHorizontal! * 5,
+);
+
 final textMediumWhiteBold = TextStyle(
   color: Colors.white,
   fontSize: SizeConfig.blockHorizontal! * 4,
@@ -132,6 +146,12 @@ final textMediumBlack = TextStyle(
 
 final textLargeBlack = TextStyle(
   color: Colors.black,
+  fontSize: SizeConfig.blockHorizontal! * 5,
+);
+
+final textExtraLargeBlackNormal = TextStyle(
+  color: Colors.black,
+  fontWeight: FontWeight.normal,
   fontSize: SizeConfig.blockHorizontal! * 5,
 );
 

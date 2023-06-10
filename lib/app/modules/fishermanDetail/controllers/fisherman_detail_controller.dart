@@ -1,31 +1,70 @@
+import 'dart:convert';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import '../../../data/services/api_service.dart';
 
 class FishermanDetailController extends GetxController {
-  // Buat sebuah variabel observabel untuk menyimpan data kategori
+  final ApiService apiService = ApiService();
+
+  // Menyimpan ID Fisherman Team
+  late int dataId;
+
+  // Variabel untuk menyimpan data kategori
   var selectedCategory = "Statistik".obs;
 
-  // Buat method untuk mengubah kategori yang dipilih
+  // Metode untuk mengubah kategori yang dipilih
   void changeCategory(String category) {
     selectedCategory.value = category;
   }
 
-  //TODO: Implement FishermanDetailController
+  // List Tim Nelayan
+  RxList<Map<String, dynamic>> fishermanTeams = <Map<String, dynamic>>[].obs;
 
-  final count = 0.obs;
+  // Memuat data aktif
+  RxBool isLoading = true.obs;
+
   @override
   void onInit() {
     super.onInit();
+    final args = Get.arguments;
+    dataId = args['dataId'];
+    fetchData();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  Future<void> fetchData() async {
+    try {
+      // Mengambil Token
+      var storage = GetStorage();
+      var token = storage.read('token');
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
+      // Memuat data aktif
+      isLoading.value = true;
 
-  void increment() => count.value++;
+      // Permintaan ke API Service
+      var response = await apiService.fetchFishermanTeams(token);
+
+      print(response.body);
+      if (response.statusCode == 200) {
+        // Testing data = null atau kosong
+        // var data = null;
+
+        // Menguraikan data JSON ke variabel data
+        var data = json.decode(response.body);
+
+        // Mengambil data berdasarkan ID
+        int idToFetch = dataId;
+        var filteredData = data.where((item) => item['id'] == idToFetch);
+        fishermanTeams.value = List<Map<String, dynamic>>.from(filteredData);
+        print(filteredData);
+      }
+
+      // Memuat data selesai
+      isLoading.value = false;
+    } catch (e) {
+      print(e);
+
+      // Memuat data selesai
+      isLoading.value = false;
+    }
+  }
 }

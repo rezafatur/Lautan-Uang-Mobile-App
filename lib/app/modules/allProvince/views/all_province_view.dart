@@ -9,6 +9,7 @@ import '../controllers/all_province_controller.dart';
 
 class AllProvinceView extends GetView<AllProvinceController> {
   const AllProvinceView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);

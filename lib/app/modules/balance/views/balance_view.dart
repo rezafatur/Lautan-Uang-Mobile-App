@@ -2,6 +2,7 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:lautan_uang/app/routes/app_pages.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/text_theme.dart';
 import '../../../../core/utils/size_configs.dart';
@@ -127,8 +128,7 @@ class BalanceView extends GetView<BalanceController> {
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 2,
                       blurRadius: 5,
-                      offset:
-                          const Offset(0, 0), // Mengatur posisi bayangan (x, y)
+                      offset: const Offset(0, 0),
                     ),
                   ],
                   color: Colors.white,
@@ -170,12 +170,16 @@ class BalanceView extends GetView<BalanceController> {
                         child: Row(
                           children: [
                             Expanded(
+                                child: InkWell(
+                              onTap: () {
+                                Get.offAllNamed(Routes.WITHDRAWAL);
+                              },
                               child: Text(
                                 "Tarik",
                                 style: textLargeBlack,
                                 textAlign: TextAlign.center,
                               ),
-                            ),
+                            )),
                             Container(
                               width: 0.25,
                               height: sizeH,
@@ -184,12 +188,16 @@ class BalanceView extends GetView<BalanceController> {
                               ),
                             ),
                             Expanded(
+                                child: InkWell(
+                              onTap: () {
+                                Get.offAllNamed(Routes.DEPOSIT);
+                              },
                               child: Text(
-                                "Deposit",
+                                "Deposito",
                                 style: textLargeBlack,
                                 textAlign: TextAlign.center,
                               ),
-                            ),
+                            )),
                           ],
                         ),
                       ),

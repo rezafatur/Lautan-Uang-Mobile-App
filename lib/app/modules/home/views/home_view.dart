@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:lautan_uang/app/controllers/page_index_controller.dart';
 import 'package:lautan_uang/app/data/models/dummy_PenawaranBaru.dart';
-import 'package:lautan_uang/app/modules/fishermanDetail/views/fisherman_detail_view.dart';
 import 'package:lautan_uang/app/routes/app_pages.dart';
 import 'package:lautan_uang/app/widgets/welcome_card.dart';
 import 'package:lautan_uang/core/theme/colors.dart';
@@ -710,11 +709,11 @@ class HomeView extends GetView<HomeController> {
                                       }
                                       return InkWell(
                                         onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const FishermanDetailView()),
+                                          Get.toNamed(
+                                            Routes.FISHERMAN_DETAIL,
+                                            arguments: {
+                                              'dataId': fishermanTeam['id'],
+                                            },
                                           );
                                         },
                                         child: Container(
