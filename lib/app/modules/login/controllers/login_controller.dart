@@ -26,8 +26,7 @@ class LoginController extends GetxController {
         pageC.changePage(0);
       } else {
         // Jika Terjadi Kesalahan, Tampilkan Pesan Error
-        var message = "Email atau Password Salah";
-        errorMessage.value = message;
+        errorMessage.value = "Email atau Password Salah";
       }
     } catch (e) {
       errorMessage.value = e.toString();

@@ -4,19 +4,18 @@ import 'package:lautan_uang/app/modules/login/views/login_view.dart';
 import 'package:lautan_uang/core/theme/colors.dart';
 import 'package:lautan_uang/core/theme/text_theme.dart';
 import 'package:lautan_uang/core/utils/size_configs.dart';
-
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
   RegisterView({Key? key}) : super(key: key);
-
-  final pageController = PageController();
 
   @override
   final RegisterController controller = Get.put(RegisterController());
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +117,7 @@ class RegisterView extends GetView<RegisterController> {
                 height: 20,
               ),
 
-              // Textfield untuk Memasukkan Password
+              // Textfield untuk Memasukkan Kata Sandi
               Material(
                 child: Obx(
                   () => TextField(
@@ -147,7 +146,7 @@ class RegisterView extends GetView<RegisterController> {
                           color: PrussianBlueColor,
                         ),
                       ),
-                      hintText: "Password",
+                      hintText: "Kata Sandi",
                       hintStyle: const TextStyle(
                         color: PrussianBlueColor,
                       ),
@@ -159,12 +158,12 @@ class RegisterView extends GetView<RegisterController> {
                 height: 20,
               ),
 
-              // Textfield untuk Konfirmasi Password
+              // Textfield untuk Konfirmasi Kata Sandi
               Material(
                 child: Obx(
                   () => TextField(
-                    controller: passwordController,
-                    obscureText: controller.showPassword.value,
+                    controller: confirmPasswordController,
+                    obscureText: controller.showConfirmPassword.value,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
@@ -178,17 +177,17 @@ class RegisterView extends GetView<RegisterController> {
                       ),
                       suffixIcon: GestureDetector(
                         onTap: () {
-                          controller.showPassword.value =
-                              !(controller.showPassword.value);
+                          controller.showConfirmPassword.value =
+                              !(controller.showConfirmPassword.value);
                         },
                         child: Icon(
-                          controller.showPassword.value != false
+                          controller.showConfirmPassword.value != false
                               ? Icons.visibility
                               : Icons.visibility_off,
                           color: PrussianBlueColor,
                         ),
                       ),
-                      hintText: "Konfirmasi Password",
+                      hintText: "Konfirmasi Kata Sandi",
                       hintStyle: const TextStyle(
                         color: PrussianBlueColor,
                       ),
@@ -203,8 +202,11 @@ class RegisterView extends GetView<RegisterController> {
               // Button atau Tombol "Daftar"
               ElevatedButton(
                 onPressed: () {
-                  controller.registerUser(nameController.text,
-                      emailController.text, passwordController.text);
+                  controller.registerUser(
+                      nameController.text,
+                      emailController.text,
+                      passwordController.text,
+                      confirmPasswordController.text);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: PrussianBlueColor,
