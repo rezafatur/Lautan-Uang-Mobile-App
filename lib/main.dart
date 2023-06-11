@@ -21,6 +21,11 @@ void main() async {
 
   // Memastikan bahwa binding Flutter telah diinisialisasi
   WidgetsFlutterBinding.ensureInitialized();
+  await Future.delayed(
+    const Duration(
+      milliseconds: 300,
+    ),
+  );
 
   // Mengatur tampilan sistem UI overlay (status bar) menjadi transparan
   SystemChrome.setSystemUIOverlayStyle(
