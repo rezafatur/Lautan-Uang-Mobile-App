@@ -9,8 +9,8 @@ Figma : [Klik Disini](https://www.figma.com/file/35MLtIJkCGTec8sJFzUWWx/Lautan-U
 
 ## Aplikasi
 
-v1.0 : [Download]{https://drive.google.com/file/d/1WnZnQj4JVOoUXbQzPecfKqEjWZXJZ6vK/view?usp=drive_link}
+v1.0 : [Download](https://drive.google.com/file/d/1WnZnQj4JVOoUXbQzPecfKqEjWZXJZ6vK/view?usp=drive_link)
 
 ## Panduan Penggunaan
 
-YouTube : [Klik Disini]{https://youtu.be/48j0p3w54mE}
+YouTube : [Klik Disini](https://youtu.be/48j0p3w54mE)
