@@ -393,11 +393,12 @@ class HomeView extends GetView<HomeController> {
                                                         height: 10,
                                                       ),
                                                       LinearProgressIndicator(
-                                                        value:
+                                                        value: PenawaranBaruContents[
+                                                                    index]
+                                                                .slotTerisi /
                                                             PenawaranBaruContents[
-                                                                        index]
-                                                                    .persentase /
-                                                                100,
+                                                                    index]
+                                                                .slotMaksimal,
                                                         backgroundColor: Colors
                                                             .grey
                                                             .withOpacity(0.3),
@@ -418,7 +419,7 @@ class HomeView extends GetView<HomeController> {
                                                                 textVerySmallPrussianBlueNormal,
                                                           ),
                                                           Text(
-                                                            "${PenawaranBaruContents[index].persentase}%",
+                                                            "${PenawaranBaruContents[index].slotMaksimal}%",
                                                             style:
                                                                 textVerySmallPrussianBlueNormal,
                                                           ),
@@ -775,9 +776,7 @@ class HomeView extends GetView<HomeController> {
                                                                 height: 10,
                                                               ),
                                                               LinearProgressIndicator(
-                                                                value: fishermanTeam[
-                                                                        'percentage'] /
-                                                                    100,
+                                                                value: 5 / 10,
                                                                 backgroundColor:
                                                                     Colors.grey
                                                                         .withOpacity(
@@ -794,12 +793,12 @@ class HomeView extends GetView<HomeController> {
                                                                         .spaceBetween,
                                                                 children: [
                                                                   Text(
-                                                                    "Nilai Bisnis",
+                                                                    "Tersedia Slot",
                                                                     style:
                                                                         textVerySmallPrussianBlueNormal,
                                                                   ),
                                                                   Text(
-                                                                    "${fishermanTeam['percentage'].toStringAsFixed(2)}%", // Convert double to string with 2 decimal places
+                                                                    "5",
                                                                     style:
                                                                         textVerySmallPrussianBlueNormal,
                                                                   ),
@@ -1022,11 +1021,12 @@ class HomeView extends GetView<HomeController> {
                                                         height: 10,
                                                       ),
                                                       LinearProgressIndicator(
-                                                        value:
+                                                        value: PenawaranBaruContents[
+                                                                    index]
+                                                                .slotTerisi /
                                                             PenawaranBaruContents[
-                                                                        index]
-                                                                    .persentase /
-                                                                100,
+                                                                    index]
+                                                                .slotMaksimal,
                                                         backgroundColor: Colors
                                                             .grey
                                                             .withOpacity(0.3),
@@ -1042,12 +1042,12 @@ class HomeView extends GetView<HomeController> {
                                                                 .spaceBetween,
                                                         children: [
                                                           Text(
-                                                            "Nilai Bisnis",
+                                                            "Tersedia Slot",
                                                             style:
                                                                 textVerySmallPrussianBlueNormal,
                                                           ),
                                                           Text(
-                                                            "${PenawaranBaruContents[index].persentase}%",
+                                                            "${PenawaranBaruContents[index].slotMaksimal}",
                                                             style:
                                                                 textVerySmallPrussianBlueNormal,
                                                           ),

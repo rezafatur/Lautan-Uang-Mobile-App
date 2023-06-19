@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/text_theme.dart';
 import '../../../../core/utils/size_configs.dart';
@@ -22,13 +20,6 @@ class InvestNowView extends GetView<InvestNowController> {
     double sizeH = SizeConfig.screenHeight!;
     double sizeW = SizeConfig.screenWidth!;
 
-    // Format angka nominal
-    final currencyFormat = NumberFormat.currency(
-      locale: 'id_ID',
-      symbol: 'Rp',
-      decimalDigits: 0,
-    );
-
     return Scaffold(
       // Navigasi Bagian Atas
       // Navigasi Bagian Atas
@@ -46,6 +37,81 @@ class InvestNowView extends GetView<InvestNowController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Total Dana Yang Didapat, Target Pendanaan, dan Tersedia Slot
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              child: Container(
+                width: sizeW,
+                height: sizeH * 0.3,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  color: PrussianBlueColor,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 20,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Total Dana Yang Didapat
+                      Text(
+                        "Total Dana Yang Didapat",
+                        style: textSmallWhite,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Rp 500.000.000",
+                        style: textExtraLargeWhiteBold,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      // Target Pendanaan
+                      Text(
+                        "Target Pendanaan",
+                        style: textSmallWhite,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Rp 1.000.000.000",
+                        style: textExtraLargeWhiteBold,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      // Tersedia Slot
+                      Text(
+                        "Tersedia Slot",
+                        style: textSmallWhite,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "5",
+                        style: textExtraLargeWhiteBold,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+
             // Investasi Sekarang
             Padding(
               padding: const EdgeInsets.symmetric(
@@ -406,55 +472,6 @@ class InvestNowView extends GetView<InvestNowController> {
             ),
             const SizedBox(
               height: 20,
-            ),
-
-            // Textfield Nominal
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                  ),
-                  child: Text(
-                    "Nominal",
-                    style: textSmallBlack,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: TextFormField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      FilteringTextInputFormatter.digitsOnly,
-                      TextInputFormatter.withFunction(
-                        (oldValue, newValue) {
-                          final parsedValue = int.tryParse(newValue.text);
-                          if (parsedValue != null) {
-                            final formattedValue =
-                                currencyFormat.format(parsedValue);
-                            return TextEditingValue(
-                              text: formattedValue,
-                              selection: TextSelection.collapsed(
-                                  offset: formattedValue.length),
-                            );
-                          }
-                          return newValue;
-                        },
-                      ),
-                    ],
-                    decoration: const InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      hintText: "Masukkan Jumlah Penarikan",
-                      hintStyle: textNormal,
-                    ),
-                    style: textBold,
-                  ),
-                ),
-              ],
             ),
           ],
         ),

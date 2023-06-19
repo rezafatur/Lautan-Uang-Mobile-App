@@ -103,7 +103,7 @@ class AllNewOfferView extends GetView<AllNewOfferController> {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Text(
-                                        "${PenawaranBaruContents[index].persentase.toStringAsFixed(2)}%",
+                                        "${PenawaranBaruContents[index].slotMaksimal}",
                                         style: textSmallBlackBold,
                                       ),
                                       const SizedBox(
@@ -111,8 +111,9 @@ class AllNewOfferView extends GetView<AllNewOfferController> {
                                       ),
                                       LinearProgressIndicator(
                                         value: PenawaranBaruContents[index]
-                                                .persentase /
-                                            100,
+                                                .slotTerisi /
+                                            PenawaranBaruContents[index]
+                                                .slotMaksimal,
                                         backgroundColor:
                                             Colors.grey.withOpacity(0.3),
                                         valueColor:

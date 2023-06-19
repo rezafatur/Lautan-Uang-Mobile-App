@@ -112,7 +112,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                     height: 20,
                   ),
 
-                  // Section 3 - Total Dana Terkumpul, Target Dana, dan Jumlah Investor
+                  // Section 3 - Total Dana Terkumpul, Target Dana, dan Jumlah Slot yang Tersedia
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
@@ -157,7 +157,7 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                           height: 5,
                         ),
                         LinearProgressIndicator(
-                          value: fishermanTeam['percentage'] / 100,
+                          value: 5 / 10,
                           backgroundColor: Colors.grey.withOpacity(0.3),
                           valueColor: const AlwaysStoppedAnimation<Color>(
                             PrussianBlueColor,
@@ -168,9 +168,25 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                         ),
                         Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(
-                            "${fishermanTeam['investor_count']} Investor",
-                            style: textSmallGrey,
+                          child: Text.rich(
+                            TextSpan(
+                              text: "Tersedia ",
+                              style: textSmallGrey,
+                              children: [
+                                TextSpan(
+                                  text: "5 Slot ",
+                                  style: textSmallPrussianBlueBold,
+                                ),
+                                TextSpan(
+                                  text: "dari Total ",
+                                  style: textSmallGrey,
+                                ),
+                                TextSpan(
+                                  text: "10 Slot Investor",
+                                  style: textSmallPrussianBlueBold,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -180,13 +196,14 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                     height: 20,
                   ),
 
-                  // Section 4 - Kumpulan Kategori Detail Nelayan (Statistik & Histori)
+                  // Section 4 - Kumpulan Kategori Detail Nelayan (Statistik, Histori, dan Kontrak)
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
                     ),
                     child: Row(
                       children: [
+                        // Button atau Tombol "Statistik"
                         Obx(
                           () => ElevatedButton(
                             onPressed: () {
@@ -219,6 +236,8 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                         const SizedBox(
                           width: 10,
                         ),
+
+                        // Button atau Tombol "Histori"
                         Obx(
                           () => ElevatedButton(
                             onPressed: () {
@@ -242,6 +261,39 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                               "Histori",
                               style:
                                   controller.selectedCategory.value == "Histori"
+                                      ? textSmallWhite
+                                      : textSmallPrussianBlue,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+
+                        // Button atau Tombol "Kontrak"
+                        Obx(
+                          () => ElevatedButton(
+                            onPressed: () {
+                              controller.changeCategory("Kontrak");
+                            },
+                            style: ElevatedButton.styleFrom(
+                              shape: const StadiumBorder(),
+                              side: BorderSide(
+                                width: 2,
+                                color: controller.selectedCategory.value ==
+                                        "Kontrak"
+                                    ? PrussianBlueColor
+                                    : PrussianBlueColor,
+                              ),
+                              backgroundColor:
+                                  controller.selectedCategory.value == "Kontrak"
+                                      ? PrussianBlueColor
+                                      : Colors.white,
+                            ),
+                            child: Text(
+                              "Kontrak",
+                              style:
+                                  controller.selectedCategory.value == "Kontrak"
                                       ? textSmallWhite
                                       : textSmallPrussianBlue,
                             ),
@@ -521,6 +573,81 @@ class FishermanDetailView extends GetView<FishermanDetailController> {
                                         Text(
                                           "/bulan",
                                           style: textSmallBlack,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        );
+                      } else if (controller.selectedCategory.value ==
+                          "Kontrak") {
+                        return Column(
+                          children: [
+                            // Margin (p.a) dan Durasi Kontrak
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                              ),
+                              child: Row(
+                                children: [
+                                  // Margin (p.a)
+                                  Expanded(
+                                    child: Column(
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            "Margin (p.a)",
+                                            style: textSmallBlack,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                "20%",
+                                                style:
+                                                    textMediumLargePrussianBlueBold,
+                                              ),
+                                              Text(
+                                                " per tahun",
+                                                style: textSmallBlack,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                  // Durasi Kontrak
+                                  Expanded(
+                                    child: Column(
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            "Durasi Kontrak",
+                                            style: textSmallBlack,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            "12 Bulan",
+                                            style:
+                                                textMediumLargePrussianBlueBold,
+                                          ),
                                         ),
                                       ],
                                     ),

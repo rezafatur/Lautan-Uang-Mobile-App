@@ -129,16 +129,14 @@ class AllFishermanTeamView extends GetView<AllFishermanTeamController> {
                                                   CrossAxisAlignment.end,
                                               children: [
                                                 Text(
-                                                  "${fishermanTeam['percentage'].toStringAsFixed(2)}%",
+                                                  "5",
                                                   style: textSmallBlackBold,
                                                 ),
                                                 const SizedBox(
                                                   height: 5,
                                                 ),
                                                 LinearProgressIndicator(
-                                                  value: fishermanTeam[
-                                                          'percentage'] /
-                                                      100,
+                                                  value: 5 / 10,
                                                   backgroundColor: Colors.grey
                                                       .withOpacity(0.3),
                                                   valueColor:
